@@ -11,7 +11,7 @@
   "author": "edenbd1",
   "license": "MIT",
   "dependencies": {
-    "xrpl": "^5.2.0"
+    "xrpl": "5.2.0-beta.1"
   },
   "devDependencies": {
     "@types/node": "^22.20.2",

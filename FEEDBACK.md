@@ -6,7 +6,7 @@
 | **Track / flavour** | Track 2 — closed-ended vault · Loaded |
 | **Network** | Public XRPL Devnet, `wss://s.devnet.rippletest.net:51233`, `network_id` 2, **`build_version` 3.4.0-rc5** |
 | **Also tested** | Hackathon Devnet, `wss://lending-hackathon.dev.ripplex.io:51233`, `network_id` 4001, **`build_version` 3.4.0-rc1** |
-| **Library** | `xrpl@5.2.0` (stable, published 2026-09-11), `ripple-binary-codec@2.11.0` |
+| **Library** | `xrpl@5.2.0-beta.1` (organizer-required), `ripple-binary-codec@2.11.0` |
 | **Date** | 2026-09-12 |
 
 Every claim below comes from a transaction we submitted. Hashes resolve at

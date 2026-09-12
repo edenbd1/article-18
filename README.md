@@ -57,11 +57,12 @@ Nobody has tokenised a genuinely closed-ended fund.
 | Network | Public XRPL Devnet, `wss://s.devnet.rippletest.net:51233` |
 | `build_version` | **3.4.0-rc5** (record it: see `FEEDBACK.md` issue 1) |
 | `network_id` | 2 |
-| Library | `xrpl@5.2.0` (stable, published 2026-09-11), `ripple-binary-codec@2.11.0` |
+| Library | `xrpl@5.2.0-beta.1` (the version the organizer requires), `ripple-binary-codec@2.11.0` |
 | Explorer | https://devnet.xrpl.org |
 
-The event brief asks for `xrpl.js@5.2.0-beta.0`. The stable `5.2.0` shipped the evening before
-the event and is what this project uses.
+The event brief (updated 2026-09-12) requires `xrpl.js@5.2.0-beta.1`, which this project pins.
+Note: the stable `5.2.0` that shipped ~5 h later carries the same `ripple-binary-codec@2.11.0` but
+validates closed-ended `VaultCreate` dates *less* strictly than beta.1 — see `FEEDBACK.md`.
 
 ## Front-end / demo
 

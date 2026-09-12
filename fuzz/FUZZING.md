@@ -237,3 +237,16 @@ issuance flag is the decisive blocker.) Repro: `confidential-shares.mjs`.
   reserve for their share MPToken themselves; the fund can cover the fee but not the reserve. Also `xrpl.js`
   `validate()` blocks it with a wrong reason ("does not create ledger objects" — the first
   `VaultDeposit` creates the depositor share MPToken). Repro: `sponsor-deposit.mjs`, `sponsor-map.mjs`.
+
+
+## 17. The two 5.2.0 builds validate differently (sdk)
+
+The organizer requires `xrpl@5.2.0-beta.1`. The stable `5.2.0` shipped ~5 hours later the same day
+and carries the **same** `ripple-binary-codec@2.11.0`, yet its `validate()` disagrees with beta.1
+in 15 cases. beta.1 is **stricter**: it rejects a closed-ended `VaultCreate` whose
+`RedemptionDate` is not greater than `SubscriptionDate`, and rejects dates outside the UInt32
+range, client-side; stable 5.2.0 accepts all of these. So a team on the stable build gets weaker
+date validation than a team on the required beta, for the same version number. The `validate()`
+weakness that survives on **both** builds is `LoanPay.Amount` (passes `""`, `"abc"`, `-1`, `1e20`),
+float rate fields, and out-of-range `PaymentInterval`/`PaymentTotal`. Repro: `local-fuzz.mjs` on
+each install (54 disagreements on stable, 57 on beta.1).
