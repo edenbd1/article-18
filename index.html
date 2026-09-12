@@ -75,9 +75,9 @@ h2{font-size:clamp(26px,4vw,34px);font-weight:400;margin:0 0 4px}
   padding-bottom:6px;border-bottom:1px solid var(--ink)}
 .phase-group>.gh h3{font-size:19px;margin:0}
 .phase-group>.gh .cnt{font-family:var(--mono);font-size:12px;color:var(--ink-soft)}
-.tx{display:grid;grid-template-columns:150px 1fr auto;gap:14px;align-items:baseline;
+.tx{display:grid;grid-template-columns:176px 1fr auto;gap:14px 16px;align-items:baseline;
   padding:8px 0;border-bottom:1px solid var(--hair);font-size:14px}
-.tx .t{font-weight:500}
+.tx .t{font-weight:500;font-size:13.5px;line-height:1.3;word-break:break-word}
 .tx .nt{color:var(--ink-soft);font-size:13.5px}
 .tx .rc{font-family:var(--mono);font-size:12px;white-space:nowrap;justify-self:end}
 .rc.ok{color:var(--ok)} .rc.gate{color:var(--ox)}
@@ -387,7 +387,7 @@ const INTEG=[
  ["y","Permissioned Domains","gates holders, deposits and transfers"],
  ["y","MPT shares","fund units as native ledger objects"],
  ["y","Sponsor (XLS-68) — fees","lender subscribes paying no transaction fee"],
- ["n","Sponsor — inline reserve","temINVALID_FLAG; needs the pre-funded flow"],
+ ["n","Sponsor — reserve","temINVALID_FLAG; unsupported for vault txs, even pre-funded"],
  ["n","Batch atomic composition","XLS-65/66 rejected as inner tx (temINVALID_INNER_BATCH)"],
  ["n","Confidential shares","share MPT lacks tfMPTCanHoldConfidentialBalance"],
  ["n","Shares on the DEX/AMM","MPTokensV2 not enabled on either network"],
