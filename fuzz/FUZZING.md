@@ -127,3 +127,17 @@ and none of it is on the `VaultCreate`/`VaultClawback` pages. Side note: an IOU 
 issuer's `DefaultRipple` or `VaultCreate` fails with `terNO_RIPPLE`, unexplained.
 
 Repro: `clawback.mjs`, `clawback-iou.mjs`, `clawback-contagion.mjs`.
+
+
+## 9. The domain eligibility gate survives the secondary market (protocol)
+
+A private, Permissioned-Domain-gated vault does not only gate deposits — it gates who can *hold*
+the share MPT, on transfer too. Verified with a positive control:
+
+- eligible holder → **eligible** holder: `Payment` of shares **tesSUCCESS**
+- eligible holder → **ineligible** account (even after `MPTokenAuthorize`): **`tecNO_AUTH`**
+
+The share MPT is flagged transferable (`tfMPTCanTransfer`), yet transfers to a non-member are
+refused. So a lender cannot offload vault units onto a non-credentialed party — the KYC/ELTIF
+guarantee holds on the secondary market, not just at subscription. Undocumented; worth stating as
+a feature. Repro: `share-transfer.mjs`, `share-transfer-control.mjs`.
