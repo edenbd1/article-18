@@ -162,3 +162,22 @@ domain-gated), with **no `CanLock` and no `CanClawback`**. The vault owner calli
 `tecNO_PERMISSION`, and the lender can still `VaultWithdraw`. So the only seizure power over a vault
 position is the underlying asset issuer's `VaultClawback` (§8) — the fund operator can neither claw
 nor freeze. Repro: `freeze-shares.mjs`.
+
+
+## 12. LoanPay amount/flag semantics are confusing (protocol)
+
+Mapped on one on-time loan (periodic ~12 XRP, `PaymentInterval` 600 s so nothing is late):
+
+| payment | result | effect |
+|---|---|---|
+| underpay (< periodic) | `tecINSUFFICIENT_PAYMENT` | no change |
+| **2× periodic, no flag** | **`tesSUCCESS`** | principal −24 XRP, `PaymentRemaining` 5 → 3 (two installments) |
+| **2× periodic + `tfLoanOverpayment`** | **`tecNO_PERMISSION`** | none |
+| exact periodic, no flag | `tesSUCCESS` | one installment |
+| exact + `tfLoanFullPayment` | `tecINSUFFICIENT_PAYMENT` | none |
+| full remaining + `tfLoanFullPayment` | `tesSUCCESS` | loan closed |
+| pay a closed loan | `tecKILLED` | — |
+
+The flag named `tfLoanOverpayment` is *rejected* while plain overpaying *works* (and silently
+consumes multiple installments); `tfLoanFullPayment` with a short amount returns a generic
+`tecINSUFFICIENT_PAYMENT`. Repro: `loanpay-matrix.mjs`.
