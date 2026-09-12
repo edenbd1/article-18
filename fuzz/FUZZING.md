@@ -79,3 +79,14 @@ different binaries:
 The hackathon network is a hand-picked, minimal amendment set pinned to an rc1 binary; the
 open-ended-vault behaviour difference (see `FEEDBACK.md` issue 2) rides that binary, not any
 amendment the `feature` RPC reports.
+
+
+## 6. XLS-65/66 transactions cannot be batched (protocol)
+
+With `BatchV1_1` and the lending amendments enabled on both networks, a `Batch` of two plain
+`Payment`s succeeds, but any `Batch` containing a `VaultCreate` / `VaultDeposit` /
+`LoanBrokerCoverDeposit` inner is rejected with **`temINVALID_INNER_BATCH`** on rc1 *and* rc5.
+Lending types are not on the Batch inner-transaction allowlist, so there is no native atomic
+composition (no atomic "deposit + originate", no keeper batch of repayments) — and nothing
+documents the exclusion. A single-inner Batch returns `temARRAY_EMPTY` (min two inners, also
+undocumented). Repro: `batch-lending.mjs`, `batch-control.mjs`, `batch-rc5.mjs`.
