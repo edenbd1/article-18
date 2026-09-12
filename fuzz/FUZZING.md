@@ -181,3 +181,22 @@ Mapped on one on-time loan (periodic ~12 XRP, `PaymentInterval` 600 s so nothing
 The flag named `tfLoanOverpayment` is *rejected* while plain overpaying *works* (and silently
 consumes multiple installments); `tfLoanFullPayment` with a short amount returns a generic
 `tecINSUFFICIENT_PAYMENT`. Repro: `loanpay-matrix.mjs`.
+
+
+## 13. Delete/cap paths are safe and legible (protocol) — and expose an inconsistency
+
+All well-behaved, with clear codes:
+
+| action | result |
+|---|---|
+| originate past `DebtMaximum` | `tecLIMIT_EXCEEDED` |
+| `VaultDelete` with assets/broker | `tecHAS_OBLIGATIONS` |
+| `LoanBrokerDelete` with cover/loan | `tecHAS_OBLIGATIONS` |
+| `LoanDelete` on an active loan | `tecHAS_OBLIGATIONS` |
+| lower `AssetsMaximum` below `AssetsTotal` | `tecLIMIT_EXCEEDED` |
+| non-owner `VaultSet` | `tecNO_PERMISSION` |
+
+No rug-by-delete, and `DebtMaximum` is a real cap. Note the contrast: these paths return precise,
+legible codes, while vault-config errors collapse to `temMALFORMED` (§4) and phase gates to
+`tecTOO_SOON`/`tecEXPIRED` (§ FEEDBACK 3). Since the protocol clearly can name the cause, the
+opaque codes elsewhere are a fixable inconsistency. Repro: `lifecycle-edges.mjs`.
