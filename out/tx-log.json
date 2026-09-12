@@ -1,0 +1,137 @@
+[
+  {
+    "at": "2026-09-12T14:27:07.820Z",
+    "note": "closed-ended vault, dates compressed to the event timeline",
+    "type": "VaultCreate",
+    "account": "rfHpvBo4o8Siaya6itDk8cPdW8u32QX9dz",
+    "code": "tesSUCCESS",
+    "hash": "9C182848A2499067F79454903A0877B3C6F809AE8FD174EBF768F55FFB3C745B",
+    "link": "https://devnet.xrpl.org/transactions/9C182848A2499067F79454903A0877B3C6F809AE8FD174EBF768F55FFB3C745B"
+  },
+  {
+    "at": "2026-09-12T14:27:14.293Z",
+    "note": "lender A subscribes 40 XRP",
+    "type": "VaultDeposit",
+    "account": "r3Z3GjFjNQQHDteSbHKvoBS4CYUvU8mbLE",
+    "code": "tesSUCCESS",
+    "hash": "A79FDB8EA3433750FA3AE54F3F101CC217310255CF95C7A06E74484E9DAB538B",
+    "link": "https://devnet.xrpl.org/transactions/A79FDB8EA3433750FA3AE54F3F101CC217310255CF95C7A06E74484E9DAB538B"
+  },
+  {
+    "at": "2026-09-12T14:27:20.416Z",
+    "note": "lender B subscribes 30 XRP",
+    "type": "VaultDeposit",
+    "account": "rUdLLwsx8CC9wFu5T7omS5aLhLsqLbGxkt",
+    "code": "tesSUCCESS",
+    "hash": "8BC2B141C3C200B49DE255E3161E18976BD8D6A32BACA02E6E952AE26340B46E",
+    "link": "https://devnet.xrpl.org/transactions/8BC2B141C3C200B49DE255E3161E18976BD8D6A32BACA02E6E952AE26340B46E"
+  },
+  {
+    "at": "2026-09-12T14:27:26.703Z",
+    "note": "loan broker, 10% cover minimum x 50% liquidation",
+    "type": "LoanBrokerSet",
+    "account": "rfHpvBo4o8Siaya6itDk8cPdW8u32QX9dz",
+    "code": "tesSUCCESS",
+    "hash": "AEED1262B1418C0D6F7F022FBA8AB6B9A358D66DC1502B3224F8723F5842E7F9",
+    "link": "https://devnet.xrpl.org/transactions/AEED1262B1418C0D6F7F022FBA8AB6B9A358D66DC1502B3224F8723F5842E7F9"
+  },
+  {
+    "at": "2026-09-12T14:27:32.825Z",
+    "note": "first-loss cover 6 XRP",
+    "type": "LoanBrokerCoverDeposit",
+    "account": "rfHpvBo4o8Siaya6itDk8cPdW8u32QX9dz",
+    "code": "tesSUCCESS",
+    "hash": "01AF22134910D40F7D0CB0422D2F2750B8822098A3CBCAE3283FF86E33EFF1C7",
+    "link": "https://devnet.xrpl.org/transactions/01AF22134910D40F7D0CB0422D2F2750B8822098A3CBCAE3283FF86E33EFF1C7"
+  },
+  {
+    "at": "2026-09-12T14:27:45.216Z",
+    "note": "GATE: LoanSet during Subscription (expected reject)",
+    "type": "LoanSet",
+    "account": "rfHpvBo4o8Siaya6itDk8cPdW8u32QX9dz",
+    "code": "tecTOO_SOON",
+    "hash": "FA68743E53B764B6C6CD72ED62739C17D1A2165CC09DDF33186DDC5160FA6E53",
+    "link": "https://devnet.xrpl.org/transactions/FA68743E53B764B6C6CD72ED62739C17D1A2165CC09DDF33186DDC5160FA6E53"
+  },
+  {
+    "at": "2026-09-12T14:29:41.218Z",
+    "note": "GATE: deposit during Investment (expected reject)",
+    "type": "VaultDeposit",
+    "account": "r3Z3GjFjNQQHDteSbHKvoBS4CYUvU8mbLE",
+    "code": "tecEXPIRED",
+    "hash": "2169AC15B6859CC056EE6E6FFB48EC5A54D46EE92BBFBD047AA411474308B1DF",
+    "link": "https://devnet.xrpl.org/transactions/2169AC15B6859CC056EE6E6FFB48EC5A54D46EE92BBFBD047AA411474308B1DF"
+  },
+  {
+    "at": "2026-09-12T14:29:45.901Z",
+    "note": "GATE: withdraw during Investment (expected reject)",
+    "type": "VaultWithdraw",
+    "account": "r3Z3GjFjNQQHDteSbHKvoBS4CYUvU8mbLE",
+    "code": "tecTOO_SOON",
+    "hash": "A4442BE6B000EEB764E118A5BA5FE0FD4810DBA4B03529B7CAC2C4A3FFBAE8BA",
+    "link": "https://devnet.xrpl.org/transactions/A4442BE6B000EEB764E118A5BA5FE0FD4810DBA4B03529B7CAC2C4A3FFBAE8BA"
+  },
+  {
+    "at": "2026-09-12T14:29:58.304Z",
+    "note": "origination, double-signed (broker + borrower)",
+    "type": "LoanSet",
+    "account": "rfHpvBo4o8Siaya6itDk8cPdW8u32QX9dz",
+    "code": "tesSUCCESS",
+    "hash": "FF0C33A94A7CC3E4F8BE58F0758A872C5D371910D345C4D897F6AAA63BA22E6A",
+    "link": "https://devnet.xrpl.org/transactions/FF0C33A94A7CC3E4F8BE58F0758A872C5D371910D345C4D897F6AAA63BA22E6A"
+  },
+  {
+    "at": "2026-09-12T14:31:06.823Z",
+    "note": "repayment 1/3 (late -> tfLoanLatePayment)",
+    "type": "LoanPay",
+    "account": "rHcLzNpkYdau8zy5g6bUTq64CxYbwJZDwj",
+    "code": "tesSUCCESS",
+    "hash": "36C74A48F87A9DB2734D6B5CEC562777C3FCCA686FAF330AA1092D54CBCBC33D",
+    "link": "https://devnet.xrpl.org/transactions/36C74A48F87A9DB2734D6B5CEC562777C3FCCA686FAF330AA1092D54CBCBC33D"
+  },
+  {
+    "at": "2026-09-12T14:32:06.924Z",
+    "note": "repayment 2/3 (late -> tfLoanLatePayment)",
+    "type": "LoanPay",
+    "account": "rHcLzNpkYdau8zy5g6bUTq64CxYbwJZDwj",
+    "code": "tesSUCCESS",
+    "hash": "2A376AF34F2C15DB0E6995D3626A5601106370088EDC56CD01CF14A1661D581B",
+    "link": "https://devnet.xrpl.org/transactions/2A376AF34F2C15DB0E6995D3626A5601106370088EDC56CD01CF14A1661D581B"
+  },
+  {
+    "at": "2026-09-12T14:33:06.036Z",
+    "note": "repayment 3/3 (late -> tfLoanLatePayment)",
+    "type": "LoanPay",
+    "account": "rHcLzNpkYdau8zy5g6bUTq64CxYbwJZDwj",
+    "code": "tesSUCCESS",
+    "hash": "EB68AB5F03BA0E1D550AC4F37101EED513A9755EA976633F5F1A572137907FA5",
+    "link": "https://devnet.xrpl.org/transactions/EB68AB5F03BA0E1D550AC4F37101EED513A9755EA976633F5F1A572137907FA5"
+  },
+  {
+    "at": "2026-09-12T14:35:18.903Z",
+    "note": "GATE: LoanSet during Redemption (expected reject)",
+    "type": "LoanSet",
+    "account": "rfHpvBo4o8Siaya6itDk8cPdW8u32QX9dz",
+    "code": "tecEXPIRED",
+    "hash": "44E452099244E72A9B1325BCCB11A9781FFEFA27B538722B4C5D82DDE43A7A43",
+    "link": "https://devnet.xrpl.org/transactions/44E452099244E72A9B1325BCCB11A9781FFEFA27B538722B4C5D82DDE43A7A43"
+  },
+  {
+    "at": "2026-09-12T14:35:18.903Z",
+    "note": "lender A redeems principal + yield",
+    "type": "VaultWithdraw",
+    "account": "r3Z3GjFjNQQHDteSbHKvoBS4CYUvU8mbLE",
+    "code": "tesSUCCESS",
+    "hash": "13A1D526AFAF87B5302E12E634E335DCC71BD93751565D40BC4696490E41B47F",
+    "link": "https://devnet.xrpl.org/transactions/13A1D526AFAF87B5302E12E634E335DCC71BD93751565D40BC4696490E41B47F"
+  },
+  {
+    "at": "2026-09-12T14:35:25.031Z",
+    "note": "lender B redeems principal + yield",
+    "type": "VaultWithdraw",
+    "account": "rUdLLwsx8CC9wFu5T7omS5aLhLsqLbGxkt",
+    "code": "tesSUCCESS",
+    "hash": "49A90CDFF3CF3C5496264A16FD5E86E8588D5ABD24741865C02B529CA57B151D",
+    "link": "https://devnet.xrpl.org/transactions/49A90CDFF3CF3C5496264A16FD5E86E8588D5ABD24741865C02B529CA57B151D"
+  }
+]

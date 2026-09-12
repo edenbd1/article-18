@@ -1,0 +1,56 @@
+[
+  {
+    "at": "2026-09-12T14:28:33.187Z",
+    "note": "CredentialType = ELTIF_RETAIL_SUITABILITY",
+    "type": "CredentialCreate",
+    "account": "rDK6gj2XVs7PnUhMU1BAqWKW96h2JPajtn",
+    "code": "tesSUCCESS",
+    "hash": "1153AF90F2D102043767EB104AF8417A79A29E6343D33CDF9D5E6CA9C82EFDCC",
+    "link": "https://devnet.xrpl.org/transactions/1153AF90F2D102043767EB104AF8417A79A29E6343D33CDF9D5E6CA9C82EFDCC"
+  },
+  {
+    "at": "2026-09-12T14:28:40.693Z",
+    "note": "the investor accepts it — a credential is bilateral",
+    "type": "CredentialAccept",
+    "account": "rMTFUHr5jWNoGCR2axMzyQaGvViEN3G8x7",
+    "code": "tesSUCCESS",
+    "hash": "2DD983635EA541501507E97C8FAD0E162E800B174334AEDAC3C5D263F733FAB6",
+    "link": "https://devnet.xrpl.org/transactions/2DD983635EA541501507E97C8FAD0E162E800B174334AEDAC3C5D263F733FAB6"
+  },
+  {
+    "at": "2026-09-12T14:28:46.988Z",
+    "note": "accepts that issuer + credential type",
+    "type": "PermissionedDomainSet",
+    "account": "rHKLbDuJAnSWheooTSdiN5j8ysJmnCYqWZ",
+    "code": "tesSUCCESS",
+    "hash": "65DEAF5BA13B5BCA6A707E96062812F45CADB896ACB57E2B975118EAE22C3D53",
+    "link": "https://devnet.xrpl.org/transactions/65DEAF5BA13B5BCA6A707E96062812F45CADB896ACB57E2B975118EAE22C3D53"
+  },
+  {
+    "at": "2026-09-12T14:28:53.119Z",
+    "note": "closed-ended + tfVaultPrivate + DomainID",
+    "type": "VaultCreate",
+    "account": "rHKLbDuJAnSWheooTSdiN5j8ysJmnCYqWZ",
+    "code": "tesSUCCESS",
+    "hash": "BF96A8FE27737357247CD008EA750E39BFB52ED2D7A4D7468B0AD94A7411730D",
+    "link": "https://devnet.xrpl.org/transactions/BF96A8FE27737357247CD008EA750E39BFB52ED2D7A4D7468B0AD94A7411730D"
+  },
+  {
+    "at": "2026-09-12T14:28:59.406Z",
+    "note": "assessed investor subscribes 20 XRP",
+    "type": "VaultDeposit",
+    "account": "rMTFUHr5jWNoGCR2axMzyQaGvViEN3G8x7",
+    "code": "tesSUCCESS",
+    "hash": "4A0B53E7A16862FE8E6359EF9AEABDB4EE48884B560AF69C62FAC4B36E9B633A",
+    "link": "https://devnet.xrpl.org/transactions/4A0B53E7A16862FE8E6359EF9AEABDB4EE48884B560AF69C62FAC4B36E9B633A"
+  },
+  {
+    "at": "2026-09-12T14:29:05.504Z",
+    "note": "GATE: unassessed investor subscribes (expected reject)",
+    "type": "VaultDeposit",
+    "account": "rYDa3aKqfyT1iLB6jbpXPa7iHiWtWHWNz",
+    "code": "tecNO_AUTH",
+    "hash": "77B338DD56B260971C9109ACFEBEB48BBD453589E6DDC3E92BB2DE092C29A269",
+    "link": "https://devnet.xrpl.org/transactions/77B338DD56B260971C9109ACFEBEB48BBD453589E6DDC3E92BB2DE092C29A269"
+  }
+]

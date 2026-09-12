@@ -1,8 +1,10 @@
 node_modules/
-out/*.json
 .env
 *.log
 .claude/
 xrpl-devex-hook/
 .xrpl-devex/
 .claude/settings.local.json
+.codex/
+.cursor/
+.grok/
