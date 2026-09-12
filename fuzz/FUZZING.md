@@ -210,3 +210,14 @@ now-ineligible lender can still `VaultWithdraw` its full balance (`tesSUCCESS`):
 bypasses the current domain gate, so re-gating gates new deposits/transfers but **cannot trap a
 lender's capital**. Sensible safety property + real governance lever, neither documented.
 Repro: `domain-regate.mjs`.
+
+
+## 15. Vault shares cannot be held confidentially (protocol)
+
+`ConfidentialTransfer` is enabled on both networks, but a vault share MPT cannot use it: the
+issuance `VaultCreate` produces has Flags 56 (`CanEscrow+CanTrade+CanTransfer`), missing
+`tfMPTCanHoldConfidentialBalance` (128) — the flag required for confidential balances. `VaultCreate`
+exposes only `tfVaultPrivate` and `tfVaultShareNonTransferable`, with no way to request it. So a
+privacy-preserving lender position is not possible through vaults. (A `prepareConfidentialConvert`
+attempt also failed on an `@xrplf/mpt-crypto` API-usage error, separate from this; the missing
+issuance flag is the decisive blocker.) Repro: `confidential-shares.mjs`.
