@@ -169,3 +169,9 @@ the same two runs.
   count**, pre-empting exactly the failure you would otherwise hit.
 - Phase enforcement itself is strict and predictable. Nothing leaked across a phase boundary in
   any run; the complaint in issue 3 is about the codes, not the behaviour.
+- **Credentials + Permissioned Domains + `tfVaultPrivate` worked first try, and the refusal code
+  is the right one.** An investor without the accepted credential is refused with **`tecNO_AUTH`**
+  (`77B338DD56B260971C9109ACFEBEB48BBD453589E6DDC3E92BB2DE092C29A269`) — one code, unambiguous,
+  and it names the actual reason. This is the direct contrast that makes issue 3 worth fixing:
+  the same protocol already knows how to answer an authorisation question legibly, so the phase
+  gates are the outlier, not the norm.
