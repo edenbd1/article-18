@@ -107,3 +107,23 @@ Probed at a non-unit share price (a defaulted vault, 0.81 assets/share):
   without minting shares — the classic first-depositor inflation vector does not apply.
 
 Repro: `share-rounding.mjs`, `share-crossholder.mjs`, `donation-inflation.mjs`.
+
+
+## 8. Vault positions remain subject to the asset issuer's clawback (protocol)
+
+Tested on public devnet (Clawback enabled), IOU-denominated vault, issuer I, owner mgr, lenders lp1/lp2:
+
+- **The issuer can claw a lender's position out of the vault**, partially and in full (`tesSUCCESS`),
+  even after deposit. `LoanBrokerCoverClawback` and `VaultClawback` are issuer powers.
+- **The vault owner cannot** (`tecNO_PERMISSION`) — no manager seizure of LP capital.
+- **XRP vaults cannot be clawed** (`tecNO_PERMISSION`, no issuer).
+- **The clawback is isolated, not socialised.** Clawing lp1 in full burns lp1's shares
+  (50M → 0) and removes only lp1's assets (`AssetsTotal` 100 → 50); lp2's shares and claim are
+  unchanged. No dilution of other holders.
+
+For a regulated RWA product (RLUSD, EURCV) this is the desired behaviour — a compliance clawback
+survives the vault wrapper and hits only the target — but it is a risk lenders must be told about,
+and none of it is on the `VaultCreate`/`VaultClawback` pages. Side note: an IOU vault needs the
+issuer's `DefaultRipple` or `VaultCreate` fails with `terNO_RIPPLE`, unexplained.
+
+Repro: `clawback.mjs`, `clawback-iou.mjs`, `clawback-contagion.mjs`.
