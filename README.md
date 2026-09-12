@@ -1,6 +1,8 @@
-# Article 18
+# Agama Finance — Article 18
 
 **A closed-ended XRPL vault that behaves like an ELTIF.**
+
+*Agama Finance builds private-credit RWA vault infrastructure; Article 18 is its XRPL-native closed-ended fund.*
 
 XLS-65 Single Asset Vault + XLS-66 Lending Protocol V1.1, with the fund lifecycle enforced by
 the ledger instead of by a fund administrator.

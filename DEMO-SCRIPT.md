@@ -1,4 +1,4 @@
-# Demo script — Article 18 (4 min + 2 min Q&A)
+# Demo script — Agama Finance / Article 18 (4 min + 2 min Q&A)
 
 Track 2 · Loaded · Team eden. Open `index.html` full-screen; have the Devnet explorer ready.
 The brief asks for: the use case, the on-chain flow, the three most important friction points and
