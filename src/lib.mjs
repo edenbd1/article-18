@@ -11,7 +11,7 @@ export const toRipple = unixSec => Math.floor(unixSec) - RIPPLE_EPOCH
 export const nowRipple = () => toRipple(Date.now() / 1000)
 export const sleep = ms => new Promise(r => setTimeout(r, ms))
 
-const LOG_PATH = new URL('../out/tx-log.json', import.meta.url).pathname
+const LOG_PATH = new URL(`../out/${process.env.TX_LOG ?? 'tx-log.json'}`, import.meta.url).pathname
 export const txLog = []
 export function flushLog() {
   fs.writeFileSync(LOG_PATH, JSON.stringify(txLog, null, 2))
