@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Article 18 — a closed-ended XRPL fund</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#E7E6DD; --paper-2:#DFDDD1; --panel:#F0EFE8;
+  --ink:#16231C; --ink-soft:#54605A; --hair:#C3C2B4;
+  --green:#14532D; --green-line:#2E6B45; --ox:#7A2E22; --gold:#9C7A3C;
+  --ok:#2E6B45; --gate:#7A2E22; --mono:'IBM Plex Mono',ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font-family:Inter,system-ui,sans-serif;font-size:16px;line-height:1.55;
+  -webkit-font-smoothing:antialiased}
+.wrap{max-width:920px;margin:0 auto;padding:0 28px}
+a{color:var(--green);text-decoration:none;border-bottom:1px solid var(--hair)}
+a:hover{border-color:var(--green)}
+h1,h2,h3{font-family:Spectral,Georgia,serif;font-weight:500;letter-spacing:-.01em;line-height:1.1}
+.serif{font-family:Spectral,Georgia,serif}
+.mono{font-family:var(--mono);font-variant-ligatures:none}
+.soft{color:var(--ink-soft)}
+
+/* masthead */
+header.mast{border-bottom:2px solid var(--ink);margin-top:34px;padding-bottom:18px}
+.mast .ki{display:flex;justify-content:space-between;align-items:baseline;gap:16px;
+  font-size:13px;color:var(--ink-soft)}
+.mast h1{font-size:clamp(48px,9vw,104px);font-weight:400;margin:.12em 0 .06em;letter-spacing:-.02em}
+.mast .sub{font-family:Spectral;font-style:italic;font-size:clamp(18px,2.6vw,24px);color:var(--ink);max-width:44ch}
+.mast .instr{margin-top:14px;font-size:14.5px;color:var(--ink-soft);max-width:70ch}
+
+/* lifecycle hero band */
+.hero{margin:30px 0 8px;border:1.5px solid var(--ink);background:
+  repeating-linear-gradient(90deg,transparent 0 5px,rgba(20,83,45,.045) 5px 6px);}
+.hero .cap{display:flex;justify-content:space-between;align-items:baseline;
+  padding:12px 18px;border-bottom:1px solid var(--hair);font-size:12.5px;color:var(--ink-soft)}
+.phases{display:grid;grid-template-columns:1fr 1fr 1fr}
+.ph{padding:20px 18px 22px;border-right:1px solid var(--hair);position:relative}
+.ph:last-child{border-right:none}
+.ph .n{font-family:var(--mono);font-size:12px;color:var(--green);letter-spacing:.02em}
+.ph h3{font-size:23px;margin:.28em 0 .5em}
+.ph .win{font-size:12.5px;color:var(--ink-soft);margin-bottom:12px;font-family:var(--mono)}
+.ph ul{list-style:none;margin:0;padding:0;font-size:13.5px}
+.ph li{padding:3px 0 3px 20px;position:relative}
+.ph li.y::before{content:"+";position:absolute;left:0;color:var(--green);font-weight:600}
+.ph li.n::before{content:"\00D7";position:absolute;left:0;color:var(--ox);font-weight:600}
+.ph li.n{color:var(--ink-soft)}
+
+/* generic section */
+section{padding:40px 0;border-bottom:1px solid var(--hair)}
+.ey{font-family:var(--mono);font-size:12px;color:var(--green);margin:0 0 6px}
+h2{font-size:clamp(26px,4vw,34px);font-weight:400;margin:0 0 4px}
+.lede{color:var(--ink-soft);max-width:66ch;margin:.4em 0 0}
+
+/* thesis two-col */
+.thesis{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:22px;
+  border:1px solid var(--hair)}
+.thesis>div{padding:18px 20px}
+.thesis>div:first-child{border-right:1px solid var(--hair)}
+.thesis dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:6px 16px;font-size:14px}
+.thesis dt{color:var(--ink-soft)}
+.thesis dd{margin:0}
+.thesis h3{font-size:17px;margin:0 0 12px}
+
+/* ledger / tx */
+.ledger{margin-top:20px}
+.phase-group{margin-bottom:26px}
+.phase-group>.gh{display:flex;align-items:baseline;gap:12px;margin:0 0 10px;
+  padding-bottom:6px;border-bottom:1px solid var(--ink)}
+.phase-group>.gh h3{font-size:19px;margin:0}
+.phase-group>.gh .cnt{font-family:var(--mono);font-size:12px;color:var(--ink-soft)}
+.tx{display:grid;grid-template-columns:150px 1fr auto;gap:14px;align-items:baseline;
+  padding:8px 0;border-bottom:1px solid var(--hair);font-size:14px}
+.tx .t{font-weight:500}
+.tx .nt{color:var(--ink-soft);font-size:13.5px}
+.tx .rc{font-family:var(--mono);font-size:12px;white-space:nowrap;justify-self:end}
+.rc.ok{color:var(--ok)} .rc.gate{color:var(--ox)}
+.tx .lk{display:block;margin-top:2px;font-family:var(--mono);font-size:11.5px}
+@media(max-width:640px){.tx{grid-template-columns:1fr auto}.tx .nt{grid-column:1/-1}}
+
+/* eligibility */
+.gate2{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:20px}
+.who{border:1px solid var(--hair);padding:16px 18px;background:var(--panel)}
+.who.in{border-left:3px solid var(--green)}
+.who.out{border-left:3px solid var(--ox)}
+.who h3{font-size:17px;margin:0 0 4px}
+.who .st{font-family:var(--mono);font-size:12px;margin-top:8px}
+.who.in .st{color:var(--ok)} .who.out .st{color:var(--ox)}
+@media(max-width:640px){.gate2,.thesis,.integ{grid-template-columns:1fr}.thesis>div:first-child{border-right:none;border-bottom:1px solid var(--hair)}}
+
+/* integration map */
+.integ{display:grid;grid-template-columns:1fr 1fr;gap:0 28px;margin-top:20px}
+.integ .row{display:grid;grid-template-columns:22px 1fr;gap:10px;padding:9px 0;
+  border-bottom:1px solid var(--hair);align-items:baseline;font-size:14px}
+.integ .mk{font-family:var(--mono);font-weight:600}
+.integ .mk.y{color:var(--green)} .integ .mk.n{color:var(--ox)}
+.integ .d{color:var(--ink-soft);font-size:13px}
+.integ .nm{font-weight:500}
+
+/* risks */
+.risk{padding:16px 0;border-bottom:1px solid var(--hair)}
+.risk:last-child{border-bottom:none}
+.risk .rt{display:flex;align-items:baseline;gap:12px}
+.risk h3{font-size:18px;margin:0}
+.risk .tag{font-family:var(--mono);font-size:11px;padding:1px 7px;border:1px solid;border-radius:2px}
+.tag.warn{color:var(--ox);border-color:var(--ox)}
+.tag.good{color:var(--green);border-color:var(--green)}
+.risk p{margin:.5em 0 0;color:var(--ink-soft);max-width:74ch;font-size:14px}
+.risk .m{font-family:var(--mono);font-size:12.5px;color:var(--ink);background:var(--panel);
+  padding:2px 6px;border:1px solid var(--hair)}
+
+footer{padding:34px 0 60px;font-size:13px;color:var(--ink-soft)}
+footer .meta{display:flex;flex-wrap:wrap;gap:6px 22px;font-family:var(--mono);font-size:12px}
+.seal{float:right;width:74px;height:74px;border:1.5px solid var(--ox);border-radius:50%;
+  display:grid;place-items:center;text-align:center;color:var(--ox);
+  font-family:Spectral;font-size:10.5px;line-height:1.15;transform:rotate(-7deg);margin-left:16px}
+@media(prefers-reduced-motion:no-preference){.hero{animation:rise .7s ease both}}
+@keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="mast">
+  <div class="ki"><span>Closed-ended vault · XLS-65 / XLS-66</span><span id="net">XRPL Devnet</span></div>
+  <h1>Article&nbsp;18</h1>
+  <p class="sub">A fund whose lifecycle is enforced by the ledger, not attested by an administrator.</p>
+  <p class="instr">The three phases of an XRPL closed-ended vault are the three phases Article 18(1) of the ELTIF Regulation (EU) 2015/760 imposes on a European long-term fund. Where the law asks a manager to declare compliance and audits it afterward, here the ledger refuses the transaction.</p>
+</header>
+
+<div class="hero">
+  <div class="cap"><span>The ledger-enforced lifecycle</span><span id="tl">compressed to the event timeline</span></div>
+  <div class="phases">
+    <div class="ph"><div class="n">phase i</div><h3>Subscription</h3><div class="win" id="w1">deposits open</div>
+      <ul><li class="y">Deposit &amp; withdraw</li><li class="y">Set loan broker &amp; cover</li><li class="n">Lending blocked</li></ul></div>
+    <div class="ph"><div class="n">phase ii</div><h3>Investment</h3><div class="win" id="w2">lending open</div>
+      <ul><li class="y">Originate &amp; repay loans</li><li class="n">Deposits blocked</li><li class="n">Withdrawals blocked</li></ul></div>
+    <div class="ph"><div class="n">phase iii</div><h3>Redemption</h3><div class="win" id="w3">exit open</div>
+      <ul><li class="y">Withdraw principal + yield</li><li class="y">Service loans</li><li class="n">New loans blocked</li></ul></div>
+  </div>
+</div>
+
+<section>
+  <p class="ey">the instrument</p>
+  <h2>What it is</h2>
+  <p class="lede">A Single Asset Vault (XLS-65) holding pooled lender capital, a Lending Protocol broker (XLS-66) originating term loans, and an eligibility gate built from Credentials and Permissioned Domains. Every transaction below is real and settled on XRPL Devnet.</p>
+  <div class="thesis">
+    <div>
+      <h3>XLS-66 closed-ended vault</h3>
+      <dl>
+        <dt>SubscriptionDate</dt><dd>immutable at creation</dd>
+        <dt>Investment</dt><dd>deposits &amp; withdrawals blocked</dd>
+        <dt>RedemptionDate</dt><dd>immutable at creation</dd>
+        <dt>Max term</dt><dd>kMaxInvestmentPeriod = 30 years</dd>
+      </dl>
+    </div>
+    <div>
+      <h3>ELTIF regime — art. 18(1)</h3>
+      <dl>
+        <dt>Subscription</dt><dd>a defined subscription period</dd>
+        <dt>Life</dt><dd>no redemption before end of life</dd>
+        <dt>End of life</dt><dd>a stated, fixed maturity</dd>
+        <dt>Market</dt><dd>268 funds, €34.0bn; FR = 41% of investors</dd>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section>
+  <p class="ey">settled on-chain</p>
+  <h2>The transaction ledger</h2>
+  <p class="lede">The full lifecycle as it happened, grouped by phase. Rejections marked in oxblood are protocol guardrails firing exactly when they should.</p>
+  <div class="ledger" id="ledger">loading…</div>
+</section>
+
+<section>
+  <p class="ey">loaded · compliance</p>
+  <h2>The eligibility gate holds on the secondary market</h2>
+  <p class="lede">An assessor issues a suitability credential; the fund declares a domain that accepts it; the private vault is bound to that domain. A non-credentialed account is refused by consensus — not just at deposit, but on any share transfer.</p>
+  <div class="gate2">
+    <div class="who in"><h3>Alice</h3><div class="soft">Holds the ELTIF suitability credential; in the fund's permissioned domain.</div><div class="st" id="alice">Subscribes — tesSUCCESS</div></div>
+    <div class="who out"><h3>Mallory</h3><div class="soft">No credential; outside the domain. Even after opting in to hold the share, transfers to her are refused.</div><div class="st" id="mallory">Refused — tecNO_AUTH</div></div>
+  </div>
+</section>
+
+<section>
+  <p class="ey">how much we could integrate</p>
+  <h2>Integration map</h2>
+  <p class="lede">"Loaded" rewards meaningful integration, not maximal. Here is what composes with a lending vault, and what the ledger blocks — the blocks are verified, and are themselves the feedback.</p>
+  <div class="integ" id="integ"></div>
+</section>
+
+<section>
+  <p class="ey">developer feedback · 40% of the score</p>
+  <h2>What the protocol gets right, and where it misleads</h2>
+  <div id="risks"></div>
+</section>
+
+<footer>
+  <div class="seal">VERIFIED<br>ON-LEDGER</div>
+  <p class="serif" style="font-size:20px;margin:0 0 10px;color:var(--ink)">Article 18</p>
+  <div class="meta">
+    <span id="fnet">XRPL Devnet</span><span id="fbuild"></span>
+    <span>Track 2 · Loaded</span><span>Team eden</span>
+    <span><a href="https://github.com/edenbd1/article-18">github.com/edenbd1/article-18</a></span>
+  </div>
+  <p class="soft" style="margin-top:14px;max-width:70ch">Generated from a live deployment. Vault, broker and loan objects, and every transaction hash, resolve on the public Devnet explorer.</p>
+</footer>
+
+</div>
+<script>
+const DATA = /*__DATA__*/ {
+  "network": "XRPL Devnet",
+  "wss": "wss://s.devnet.rippletest.net:51233",
+  "build": "3.4.0-rc5",
+  "network_id": 2,
+  "generatedAt": "2026-09-12T16:47:21.520Z",
+  "tx": [
+    {
+      "phase": "Eligibility",
+      "type": "CredentialCreate",
+      "code": "tesSUCCESS",
+      "hash": "ACD92D33043AECAE1A74FD3F485D18CF5EBCECEDEA9F7E32D9783395450D72EE",
+      "link": "https://devnet.xrpl.org/transactions/ACD92D33043AECAE1A74FD3F485D18CF5EBCECEDEA9F7E32D9783395450D72EE",
+      "note": "Assessor issues suitability credential to Alice"
+    },
+    {
+      "phase": "Eligibility",
+      "type": "CredentialAccept",
+      "code": "tesSUCCESS",
+      "hash": "727387EBE48067A3C091E76EA5BB7C968C2AA48DBE4EFBAC5EC264B28D8E3838",
+      "link": "https://devnet.xrpl.org/transactions/727387EBE48067A3C091E76EA5BB7C968C2AA48DBE4EFBAC5EC264B28D8E3838",
+      "note": "Alice accepts the credential (bilateral)"
+    },
+    {
+      "phase": "Eligibility",
+      "type": "PermissionedDomainSet",
+      "code": "tesSUCCESS",
+      "hash": "B76F669871026B28104A224005A5E7605127B03F148FCE5B9D392E25437D4205",
+      "link": "https://devnet.xrpl.org/transactions/B76F669871026B28104A224005A5E7605127B03F148FCE5B9D392E25437D4205",
+      "note": "Fund declares the domain of acceptable investors"
+    },
+    {
+      "phase": "Subscription",
+      "type": "VaultCreate",
+      "code": "tesSUCCESS",
+      "hash": "59CA3463EEEC040A66A6EC37DCFEC70355AE6FE2574764920201DE189482C1E3",
+      "link": "https://devnet.xrpl.org/transactions/59CA3463EEEC040A66A6EC37DCFEC70355AE6FE2574764920201DE189482C1E3",
+      "note": "Closed-ended, private, domain-gated vault (VaultKind 1)"
+    },
+    {
+      "phase": "Subscription",
+      "type": "VaultDeposit",
+      "code": "tesSUCCESS",
+      "hash": "BEB412FB5C66181F12F72955551937468FC0A46EF9DFEB685ADD1246124ECE5A",
+      "link": "https://devnet.xrpl.org/transactions/BEB412FB5C66181F12F72955551937468FC0A46EF9DFEB685ADD1246124ECE5A",
+      "note": "Alice subscribes 40 XRP, fund SPONSORS the fee (XLS-68)",
+      "sponsored": true
+    },
+    {
+      "phase": "Subscription",
+      "type": "VaultDeposit",
+      "code": "tecNO_AUTH",
+      "hash": "F31CA2FF5B4C5355A9B9F0ECE29B61E1633A971B15DFAF907F43FD95778BB4BE",
+      "link": "https://devnet.xrpl.org/transactions/F31CA2FF5B4C5355A9B9F0ECE29B61E1633A971B15DFAF907F43FD95778BB4BE",
+      "note": "GATE: ineligible Mallory tries to subscribe (expected tecNO_AUTH)"
+    },
+    {
+      "phase": "Subscription",
+      "type": "LoanBrokerSet",
+      "code": "tesSUCCESS",
+      "hash": "7373676586EE2AEF8F4CF848C91CBCBFD8610A404E1F3FBE00CCD37B186F06BB",
+      "link": "https://devnet.xrpl.org/transactions/7373676586EE2AEF8F4CF848C91CBCBFD8610A404E1F3FBE00CCD37B186F06BB",
+      "note": "Fund sets the loan broker (10% x 50% first-loss)"
+    },
+    {
+      "phase": "Subscription",
+      "type": "LoanBrokerCoverDeposit",
+      "code": "tesSUCCESS",
+      "hash": "1880AF7D572ABE758C66CA27B6071F9C36A50A24C42A2F6E9FD3C5D8CC82DD65",
+      "link": "https://devnet.xrpl.org/transactions/1880AF7D572ABE758C66CA27B6071F9C36A50A24C42A2F6E9FD3C5D8CC82DD65",
+      "note": "Fund deposits 4 XRP first-loss cover"
+    },
+    {
+      "phase": "Subscription",
+      "type": "LoanSet",
+      "code": "tecTOO_SOON",
+      "hash": "8F9AADAD07AE85815434DD679C0B4158F737539550EC505DC8EA418D4EEEF3F9",
+      "link": "https://devnet.xrpl.org/transactions/8F9AADAD07AE85815434DD679C0B4158F737539550EC505DC8EA418D4EEEF3F9",
+      "note": "GATE: origination during Subscription (expected reject)"
+    },
+    {
+      "phase": "Investment",
+      "type": "VaultDeposit",
+      "code": "tecEXPIRED",
+      "hash": "DCC0F013807292D0C91EF4E3E2DF4387F2EB13B6AFF30AE2EFC6BFE019320B69",
+      "link": "https://devnet.xrpl.org/transactions/DCC0F013807292D0C91EF4E3E2DF4387F2EB13B6AFF30AE2EFC6BFE019320B69",
+      "note": "GATE: deposit during Investment (expected reject)"
+    },
+    {
+      "phase": "Investment",
+      "type": "VaultWithdraw",
+      "code": "tecTOO_SOON",
+      "hash": "3CC0A83B03B4CD1BD1BEC6205C03057932CEADE540BA6DB50034F4483DBE0443",
+      "link": "https://devnet.xrpl.org/transactions/3CC0A83B03B4CD1BD1BEC6205C03057932CEADE540BA6DB50034F4483DBE0443",
+      "note": "GATE: withdraw during Investment (expected reject)"
+    },
+    {
+      "phase": "Investment",
+      "type": "LoanSet",
+      "code": "tesSUCCESS",
+      "hash": "6503A3913EB514CDCCF9E4131021C5A3C95B43AF2E18D9813DD6F70582A3678E",
+      "link": "https://devnet.xrpl.org/transactions/6503A3913EB514CDCCF9E4131021C5A3C95B43AF2E18D9813DD6F70582A3678E",
+      "note": "Double-signed origination: 20 XRP loan to borrower"
+    },
+    {
+      "phase": "Investment",
+      "type": "LoanPay",
+      "code": "tesSUCCESS",
+      "hash": "5F5E4067EAB1D1EB74C7D06C3717675397C96895FE6F2F3A15C9574D36EB64CB",
+      "link": "https://devnet.xrpl.org/transactions/5F5E4067EAB1D1EB74C7D06C3717675397C96895FE6F2F3A15C9574D36EB64CB",
+      "note": "Repayment 1/2 (late-safe flag)"
+    },
+    {
+      "phase": "Investment",
+      "type": "LoanPay",
+      "code": "tesSUCCESS",
+      "hash": "111038E4B85B5D47EE242D2C59226C77BF59EF752E73F54BB8521C01AAA19079",
+      "link": "https://devnet.xrpl.org/transactions/111038E4B85B5D47EE242D2C59226C77BF59EF752E73F54BB8521C01AAA19079",
+      "note": "Repayment 2/2 (late-safe flag)"
+    },
+    {
+      "phase": "Redemption",
+      "type": "VaultWithdraw",
+      "code": "tesSUCCESS",
+      "hash": "D68220EDF49C65D2A6EE2F9D67332FC44971C8895AC92E3443734DBD4AD9E2F0",
+      "link": "https://devnet.xrpl.org/transactions/D68220EDF49C65D2A6EE2F9D67332FC44971C8895AC92E3443734DBD4AD9E2F0",
+      "note": "Alice redeems principal + yield"
+    }
+  ],
+  "accounts": {
+    "assessor": "rGXUXsQgisPtw26HwSTwNHCVdU5YL2952c",
+    "fund": "rKBaBKWbjo4buwBttaBaZneiCJVy5enYgJ",
+    "alice_eligible": "rHuomG8So8ugPbGib9iZDRftpRdavDkjBZ",
+    "mallory_ineligible": "rBuji2z2y5kzPV4a8QgDvAokbLns3AKem7",
+    "borrower": "rPbJgnQeEAUwYicVZ2w3zzsWbyNME4eco2"
+  },
+  "ids": {
+    "domain": "2B1D2EE88344D34D5D4413ED311FE03712D92DC7B9B69EEADAA87BA2E5660671",
+    "vault": "CFC266EAAE4665ECD641669F2C417803D46926F1FA2DA0A975FF32599F5531E3",
+    "shareMPT": "000000016EC15A8AB3E3F315BE28DE32B3DDA8FE29BFD538",
+    "broker": "1FDC4CB4475B7A055BFF3E7616BFD4D981CEA1F7A49F54B96D3C925AEAE20838",
+    "loan": "CB092E559783763E5022526A64F5A21B4B03E1B16C96DBD00E569BB671F92F57"
+  },
+  "timeline": {
+    "subscriptionDate": 842546985,
+    "redemptionDate": 842547345,
+    "subscription_secs": 120,
+    "investment_secs": 360
+  },
+  "done": true
+};
+const $=s=>document.querySelector(s);
+const short=h=>h?h.slice(0,8)+" … "+h.slice(-6):"";
+const isGate=t=>/GATE|expected reject|tecNO_AUTH/i.test(t.note)||/^tec|^tem|^tel|^ter/i.test(t.code)&&t.code!=="tesSUCCESS";
+
+const INTEG=[
+ ["y","XLS-65 Single Asset Vault","the pooled capital, shares are MPTs"],
+ ["y","XLS-66 Lending Protocol","broker, double-signed origination, repayment"],
+ ["y","Credentials","issuer-signed suitability attestation"],
+ ["y","Permissioned Domains","gates holders, deposits and transfers"],
+ ["y","MPT shares","fund units as native ledger objects"],
+ ["y","Sponsor (XLS-68) — fees","lender subscribes paying no transaction fee"],
+ ["n","Sponsor — inline reserve","temINVALID_FLAG; needs the pre-funded flow"],
+ ["n","Batch atomic composition","XLS-65/66 rejected as inner tx (temINVALID_INNER_BATCH)"],
+ ["n","Confidential shares","share MPT lacks tfMPTCanHoldConfidentialBalance"],
+ ["n","Shares on the DEX/AMM","MPTokensV2 not enabled on either network"],
+];
+const RISKS=[
+ ["warn","First-loss cover misleads","The two rates multiply. CoverRateMinimum 10% × CoverRateLiquidation 50% = 5% effective. A live 20 XRP default consumed only ","1 XRP"," of a 5 XRP cover; lenders absorbed 19 XRP. A naive UI shows 25%."],
+ ["warn","Cover is clawable, protection is not committed","If the cover is a clawback-enabled stablecoin, its issuer can zero it with LoanBrokerCoverClawback. First-loss protection is neither sized nor committed as its name implies."],
+ ["warn","Self-dealing is permitted","LoanSet with Counterparty = broker owner = vault owner succeeds, and only that owner can declare the default. One party can borrow the pool and rule on its own default."],
+ ["good","But a manager cannot seize or freeze a lender","VaultClawback and share lock by the owner both return tecNO_PERMISSION. Only the underlying asset issuer can claw, and the effect is isolated — no dilution of other holders."],
+ ["good","And a late payment is the one that surprised us","A LoanPay a few seconds past due returns ","tecEXPIRED"," unless tfLoanLatePayment is set — the code reads as terminal. Fixed in our flow; filed as the top feedback item."],
+];
+
+function render(){
+  if(DATA){ $("#net").textContent=$("#fnet").textContent=DATA.network+" · net "+DATA.network_id;
+    $("#fbuild").textContent="rippled "+DATA.build; }
+  // integration
+  $("#integ").innerHTML=INTEG.map(([m,n,d])=>`<div class="row"><span class="mk ${m}">${m==="y"?"+":"×"}</span><span><span class="nm">${n}</span><br><span class="d">${d}</span></span></div>`).join("");
+  // risks
+  $("#risks").innerHTML=RISKS.map(r=>`<div class="risk"><div class="rt"><h3>${r[1]}</h3><span class="tag ${r[0]}">${r[0]==="warn"?"finding":"sound"}</span></div><p>${r[2]}${r[3]?`<span class="m">${r[3]}</span>`:""}${r[4]||""}</p></div>`).join("");
+  // ledger
+  const L=$("#ledger");
+  if(!DATA||!DATA.tx||!DATA.tx.length){L.innerHTML='<p class="soft">Deployment data not embedded.</p>';return;}
+  const phases=["Eligibility","Subscription","Investment","Redemption"];
+  L.innerHTML=phases.map(ph=>{
+    const rows=DATA.tx.filter(t=>t.phase===ph); if(!rows.length)return"";
+    return `<div class="phase-group"><div class="gh"><h3>${ph}</h3><span class="cnt">${rows.length} tx</span></div>`+
+      rows.map(t=>{const g=isGate(t);
+        return `<div class="tx"><span class="t">${t.type}</span><span class="nt">${t.note}${t.link?`<a class="lk" href="${t.link}" target="_blank" rel="noopener">${short(t.hash)}</a>`:""}</span><span class="rc ${g?'gate':'ok'}">${t.code}</span></div>`;
+      }).join("")+`</div>`;
+  }).join("");
+}
+render();
+</script>
+</body>
+</html>

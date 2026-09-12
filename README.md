@@ -57,6 +57,10 @@ Nobody has tokenised a genuinely closed-ended fund.
 The event brief asks for `xrpl.js@5.2.0-beta.0`. The stable `5.2.0` shipped the evening before
 the event and is what this project uses.
 
+## Front-end / demo
+
+Open `index.html` in a browser: a self-contained fund fact sheet that renders the live deployment — the ledger-enforced lifecycle, the real transaction ledger (with explorer links), the eligibility gate, the integration map, and the developer-feedback findings. Data is embedded from `out/demo-data.json`, produced by `src/deploy-demo.mjs`.
+
 ## Setup
 
 ```bash
