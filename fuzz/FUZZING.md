@@ -90,3 +90,20 @@ Lending types are not on the Batch inner-transaction allowlist, so there is no n
 composition (no atomic "deposit + originate", no keeper batch of repayments) — and nothing
 documents the exclusion. A single-inner Batch returns `temARRAY_EMPTY` (min two inners, also
 undocumented). Repro: `batch-lending.mjs`, `batch-control.mjs`, `batch-rc5.mjs`.
+
+
+## 7. Vault share math is sound against the ERC-4626 attack family (protocol, negative result)
+
+Probed at a non-unit share price (a defaulted vault, 0.81 assets/share):
+
+- **Deposit and withdraw are exact inverses.** Both use identical rounding; after 12 micro
+  deposit/withdraw operations `AssetsTotal` and total shares returned to the *exact* starting
+  values. No free-money round trip. (An individual `VaultWithdraw` looks like it under-burns
+  shares in isolation, but deposit under-mints identically, so it nets to zero.)
+- **No cross-holder leak.** With two holders, 15 one-drop round trips by one holder changed the
+  other holder's asset claim by exactly 0 drops.
+- **Donation inflation is structurally impossible.** A `Payment` to the vault's pseudo-account
+  is rejected with `tecNO_PERMISSION`, so `AssetsTotal` (a tracked field) cannot be inflated
+  without minting shares — the classic first-depositor inflation vector does not apply.
+
+Repro: `share-rounding.mjs`, `share-crossholder.mjs`, `donation-inflation.mjs`.
