@@ -3,46 +3,54 @@
   "wss": "wss://s.devnet.rippletest.net:51233",
   "build": "3.4.0-rc5",
   "network_id": 2,
-  "generatedAt": "2026-09-12T16:48:01.699Z",
+  "generatedAt": "2026-09-12T17:34:56.209Z",
   "tx": [
+    {
+      "phase": "Identity",
+      "type": "DIDSet",
+      "code": "tesSUCCESS",
+      "hash": "5EEA2EC7E4CBDA18B755589126E80847730BD3AF152CFEE5C2A4BA1D2BD78B73",
+      "link": "https://devnet.xrpl.org/transactions/5EEA2EC7E4CBDA18B755589126E80847730BD3AF152CFEE5C2A4BA1D2BD78B73",
+      "note": "Fund publishes its on-ledger DID identity + prospectus"
+    },
     {
       "phase": "Eligibility",
       "type": "CredentialCreate",
       "code": "tesSUCCESS",
-      "hash": "51660F3F70524C5CCC9D408E86A08996C5C9E848E50E6B41F3EB3E0C82CDDCDA",
-      "link": "https://devnet.xrpl.org/transactions/51660F3F70524C5CCC9D408E86A08996C5C9E848E50E6B41F3EB3E0C82CDDCDA",
+      "hash": "F102A60C262F8D062217B5E94A5FCD8531985C4644098453A7DB5BBC205C7076",
+      "link": "https://devnet.xrpl.org/transactions/F102A60C262F8D062217B5E94A5FCD8531985C4644098453A7DB5BBC205C7076",
       "note": "Assessor issues suitability credential to Alice"
     },
     {
       "phase": "Eligibility",
       "type": "CredentialAccept",
       "code": "tesSUCCESS",
-      "hash": "62705D98440CF037AB70BC239CBA5ED7A4F2C7185098253DD1AD7C9E27620DD4",
-      "link": "https://devnet.xrpl.org/transactions/62705D98440CF037AB70BC239CBA5ED7A4F2C7185098253DD1AD7C9E27620DD4",
+      "hash": "9ABD055424CC2DD9012E705E242A64889EBBC6D7A03D2B9DE43F92FDCD66D7DC",
+      "link": "https://devnet.xrpl.org/transactions/9ABD055424CC2DD9012E705E242A64889EBBC6D7A03D2B9DE43F92FDCD66D7DC",
       "note": "Alice accepts the credential (bilateral)"
     },
     {
       "phase": "Eligibility",
       "type": "PermissionedDomainSet",
       "code": "tesSUCCESS",
-      "hash": "D6E41367D89EBE7F4DF42CF0EF96AD51A9B4F5979517B81831BD153DD5485882",
-      "link": "https://devnet.xrpl.org/transactions/D6E41367D89EBE7F4DF42CF0EF96AD51A9B4F5979517B81831BD153DD5485882",
+      "hash": "6756823B8E3367E1A6FF0DCBE503C08AA5FEE416911B72B39AA1929EDE4DAD44",
+      "link": "https://devnet.xrpl.org/transactions/6756823B8E3367E1A6FF0DCBE503C08AA5FEE416911B72B39AA1929EDE4DAD44",
       "note": "Fund declares the domain of acceptable investors"
     },
     {
       "phase": "Subscription",
       "type": "VaultCreate",
       "code": "tesSUCCESS",
-      "hash": "7B9859CC78CE7BB440039DB60FC8A2548BC28A029314999D8C6C86B6402C5ED2",
-      "link": "https://devnet.xrpl.org/transactions/7B9859CC78CE7BB440039DB60FC8A2548BC28A029314999D8C6C86B6402C5ED2",
+      "hash": "5DD752E735AC1D74DDDFC88F48D17AA0CFF8EE842B5D65693AB172F24F87B72D",
+      "link": "https://devnet.xrpl.org/transactions/5DD752E735AC1D74DDDFC88F48D17AA0CFF8EE842B5D65693AB172F24F87B72D",
       "note": "Closed-ended, private, domain-gated vault (VaultKind 1)"
     },
     {
       "phase": "Subscription",
       "type": "VaultDeposit",
       "code": "tesSUCCESS",
-      "hash": "24660C5B69EB27E46EEA950BB2EBC132AFC9B8BD55B02F473179297543A2CE7D",
-      "link": "https://devnet.xrpl.org/transactions/24660C5B69EB27E46EEA950BB2EBC132AFC9B8BD55B02F473179297543A2CE7D",
+      "hash": "D041BB7D54BDAA7B0FED2B0B1275A80BDD1D65D79F54178A5EC9B3B7BF7EC7A9",
+      "link": "https://devnet.xrpl.org/transactions/D041BB7D54BDAA7B0FED2B0B1275A80BDD1D65D79F54178A5EC9B3B7BF7EC7A9",
       "note": "Alice subscribes 40 XRP, fund SPONSORS the fee (XLS-68)",
       "sponsored": true
     },
@@ -50,100 +58,101 @@
       "phase": "Subscription",
       "type": "VaultDeposit",
       "code": "tecNO_AUTH",
-      "hash": "9C19EF76C1893A35E9955B11EC40C7005F52825F3201CE6F79744A921434AD92",
-      "link": "https://devnet.xrpl.org/transactions/9C19EF76C1893A35E9955B11EC40C7005F52825F3201CE6F79744A921434AD92",
+      "hash": "314B5480CB9287889436F1ABEA661D5BB3AB37E362ECA9F91789C8AF4CABE58E",
+      "link": "https://devnet.xrpl.org/transactions/314B5480CB9287889436F1ABEA661D5BB3AB37E362ECA9F91789C8AF4CABE58E",
       "note": "GATE: ineligible Mallory tries to subscribe (expected tecNO_AUTH)"
     },
     {
       "phase": "Subscription",
       "type": "LoanBrokerSet",
       "code": "tesSUCCESS",
-      "hash": "71F7D02EFB9F5BE05401EACB5D44C70A94D985D7DE9967098D8778BBD9B28F61",
-      "link": "https://devnet.xrpl.org/transactions/71F7D02EFB9F5BE05401EACB5D44C70A94D985D7DE9967098D8778BBD9B28F61",
+      "hash": "8862CDAFAE8EDC85D0D5BC8FC0D0D9FE9A2B2A1260CD73EAA35620662AF8EDDA",
+      "link": "https://devnet.xrpl.org/transactions/8862CDAFAE8EDC85D0D5BC8FC0D0D9FE9A2B2A1260CD73EAA35620662AF8EDDA",
       "note": "Fund sets the loan broker (10% x 50% first-loss)"
     },
     {
       "phase": "Subscription",
       "type": "LoanBrokerCoverDeposit",
       "code": "tesSUCCESS",
-      "hash": "1246FB7B4EB87B5D231034DBFD147D4C5CB23C81CF0BF68DF8CD0267D118B657",
-      "link": "https://devnet.xrpl.org/transactions/1246FB7B4EB87B5D231034DBFD147D4C5CB23C81CF0BF68DF8CD0267D118B657",
+      "hash": "E0FDC0F7A432F179E989ED24DBE921C3A4670B47A17FB1113A4DDA42CED5B5B3",
+      "link": "https://devnet.xrpl.org/transactions/E0FDC0F7A432F179E989ED24DBE921C3A4670B47A17FB1113A4DDA42CED5B5B3",
       "note": "Fund deposits 4 XRP first-loss cover"
     },
     {
       "phase": "Subscription",
       "type": "LoanSet",
       "code": "tecTOO_SOON",
-      "hash": "BC659C1D6A7C803E431F7352841D25032CED96B4285EE879A058DD78F76F9C41",
-      "link": "https://devnet.xrpl.org/transactions/BC659C1D6A7C803E431F7352841D25032CED96B4285EE879A058DD78F76F9C41",
+      "hash": "533EAB72D237C45DAC25909157C204DE4C99E2385568A29B1BDF0060BC9AC17B",
+      "link": "https://devnet.xrpl.org/transactions/533EAB72D237C45DAC25909157C204DE4C99E2385568A29B1BDF0060BC9AC17B",
       "note": "GATE: origination during Subscription (expected reject)"
     },
     {
       "phase": "Investment",
       "type": "VaultDeposit",
       "code": "tecEXPIRED",
-      "hash": "8450129FF13A6FA72B101CCD9F317778E2717A58B1C59E6D172B1A55F3442DED",
-      "link": "https://devnet.xrpl.org/transactions/8450129FF13A6FA72B101CCD9F317778E2717A58B1C59E6D172B1A55F3442DED",
+      "hash": "547EE329BFCB7D9E531161F0376B678B7EFBD6A44BB9925AC1C4EE839C7B7961",
+      "link": "https://devnet.xrpl.org/transactions/547EE329BFCB7D9E531161F0376B678B7EFBD6A44BB9925AC1C4EE839C7B7961",
       "note": "GATE: deposit during Investment (expected reject)"
     },
     {
       "phase": "Investment",
       "type": "VaultWithdraw",
       "code": "tecTOO_SOON",
-      "hash": "680C743AEC2B400241AAF5F0534856254E6A4EDEB8DDB72F72FBF36B5B1A98A6",
-      "link": "https://devnet.xrpl.org/transactions/680C743AEC2B400241AAF5F0534856254E6A4EDEB8DDB72F72FBF36B5B1A98A6",
+      "hash": "D4724854D229E6FA3CED5011A07148643EAD4DB81342C57BFE0D437A50FC491F",
+      "link": "https://devnet.xrpl.org/transactions/D4724854D229E6FA3CED5011A07148643EAD4DB81342C57BFE0D437A50FC491F",
       "note": "GATE: withdraw during Investment (expected reject)"
     },
     {
       "phase": "Investment",
       "type": "LoanSet",
       "code": "tesSUCCESS",
-      "hash": "6E32119C87BDB3F380B85FFDC5EA88FD88E97A47B535A2F13CDFD9EBA6199A11",
-      "link": "https://devnet.xrpl.org/transactions/6E32119C87BDB3F380B85FFDC5EA88FD88E97A47B535A2F13CDFD9EBA6199A11",
+      "hash": "DFA0CD99AFF40C0343D370EEFC79785230FAAE64C4D656B57FC825B7041996FF",
+      "link": "https://devnet.xrpl.org/transactions/DFA0CD99AFF40C0343D370EEFC79785230FAAE64C4D656B57FC825B7041996FF",
       "note": "Double-signed origination: 20 XRP loan to borrower"
     },
     {
       "phase": "Investment",
       "type": "LoanPay",
       "code": "tesSUCCESS",
-      "hash": "94213AE96BF4E0BC3DE099C29061B49895E6B626B17EBC40238BE0D00AC50DF3",
-      "link": "https://devnet.xrpl.org/transactions/94213AE96BF4E0BC3DE099C29061B49895E6B626B17EBC40238BE0D00AC50DF3",
+      "hash": "7510186C15873A60C6958664BB9409763D3C0AE70F4508B72F03E4E39A0EB7E1",
+      "link": "https://devnet.xrpl.org/transactions/7510186C15873A60C6958664BB9409763D3C0AE70F4508B72F03E4E39A0EB7E1",
       "note": "Repayment 1/2 (late-safe flag)"
     },
     {
       "phase": "Investment",
       "type": "LoanPay",
       "code": "tesSUCCESS",
-      "hash": "B3AE10521B803F48B8E24A009DE7E13AFF76BCDFB31700FF49258BF84AA6BBAC",
-      "link": "https://devnet.xrpl.org/transactions/B3AE10521B803F48B8E24A009DE7E13AFF76BCDFB31700FF49258BF84AA6BBAC",
+      "hash": "5F98ED985A293C078CFAFF4854B3C6A96B541D5F4D824A22AF5E0332E604FB12",
+      "link": "https://devnet.xrpl.org/transactions/5F98ED985A293C078CFAFF4854B3C6A96B541D5F4D824A22AF5E0332E604FB12",
       "note": "Repayment 2/2 (late-safe flag)"
     },
     {
       "phase": "Redemption",
       "type": "VaultWithdraw",
       "code": "tesSUCCESS",
-      "hash": "C36C6E864AACB18AAFDAA8295281979079A433490240594D8C88D77CAA046B5B",
-      "link": "https://devnet.xrpl.org/transactions/C36C6E864AACB18AAFDAA8295281979079A433490240594D8C88D77CAA046B5B",
+      "hash": "9CCBC9640246D8D4BFE28DEDE9EE71F86DDFA660BFD4A82B4718DB1450BE3B22",
+      "link": "https://devnet.xrpl.org/transactions/9CCBC9640246D8D4BFE28DEDE9EE71F86DDFA660BFD4A82B4718DB1450BE3B22",
       "note": "Alice redeems principal + yield"
     }
   ],
   "accounts": {
-    "assessor": "rnfomFYLCHFJqryn2cfmL23ZPfMwPY5ruB",
-    "fund": "rnP6q4nrvVoFPZ8k7UXdPatfTU3imEbeha",
-    "alice_eligible": "raYR3Umr3yyDgvZ43ixKsNmR2YTJFHM6gh",
-    "mallory_ineligible": "rfGLr7tYePkWSsV4NFLgRtjP31Mdb62KA2",
-    "borrower": "r9DeMBY2SKSQEZf8pksH1gFBXW6beB8UjK"
+    "assessor": "rJbBCRQ4Phq4tV9jKkPJpBX5gX6K1kFuwf",
+    "fund": "rszVXcid9Gi1SebTNZaUbkTte5AYoVtPki",
+    "alice_eligible": "rfYPMrcUZAhbDvZrcvZmRNYGFjnXwciDeA",
+    "mallory_ineligible": "rKSfCajKZx16FrkKP5Hx6Krc5vLtqricMT",
+    "borrower": "rPyZXLv3kokWE9n5RbAzjAGvi3wN6ULbHp"
   },
   "ids": {
-    "domain": "AAF7ECD7261CBFBBBB07B4CCF4EE7DAFCEED1EDCCBB7ACFB0A9DE9426511A794",
-    "vault": "50A1532B47F2708C40F0DF798A29C6A596CAAB7DC046D2BBF17F536F8EB1DBD3",
-    "shareMPT": "0000000128C356EF9F8A616D2B840A4CDC3C7A5C11923F9A",
-    "broker": "7C24855018F045194055DEC6575F04D227A1A5E8099CD66596C90A8E7B73A9D6",
-    "loan": "1A3E60826FD0E54782E7DE48CB3D8804EF2A74EF4C0BDAF6D495020955E47FC9"
+    "did": "rszVXcid9Gi1SebTNZaUbkTte5AYoVtPki",
+    "domain": "653F9D751B0BAAB4C618BC0778C6DDD674A729DE5D481F6B96731209BF6DD816",
+    "vault": "A82A6EBBB60D24755A13E41A14FDFB9E70EDC8AFE4129040BB0A9E0B869CAA07",
+    "shareMPT": "000000010A8381A7E8D3CB944948E87C8B93CB83EFF8793E",
+    "broker": "FF970542944788DDBABE6E141C27FD92842C2279D3336AC4A54CA504E2098168",
+    "loan": "B22C03F37063BFD085C3B7317189E258F3585A475E996133C8A3138EB55D9A85"
   },
   "timeline": {
-    "subscriptionDate": 842547018,
-    "redemptionDate": 842547378,
+    "subscriptionDate": 842549849,
+    "redemptionDate": 842550209,
     "subscription_secs": 120,
     "investment_secs": 360
   },

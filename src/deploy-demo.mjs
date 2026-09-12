@@ -21,6 +21,11 @@ D.accounts={assessor:assessor.address,fund:fund.address,alice_eligible:alice.add
 console.log('accounts funded'); save()
 const CT=hex('ELTIF_RETAIL_SUITABILITY')
 
+// 0. fund identity: on-ledger DID + prospectus
+const didDoc=JSON.stringify({"@context":"https://www.w3.org/ns/did/v1",id:`did:xrpl:${fund.address}`,alsoKnownAs:"Article 18 Fund",service:[{id:"#prospectus",type:"ELTIFProspectus",serviceEndpoint:"https://agama.finance/article18/prospectus"}]})
+let rd=await go(fund,{TransactionType:'DIDSet',Account:fund.address,URI:hex('https://agama.finance/article18/did.json'),Data:hex('Article 18 - ELTIF-shaped closed-ended fund'),DIDDocument:hex(didDoc)},'Identity','Fund publishes its on-ledger DID identity + prospectus')
+D.ids.did=fund.address; save()
+
 // 1. eligibility: credential + domain
 await go(assessor,{TransactionType:'CredentialCreate',Account:assessor.address,Subject:alice.address,CredentialType:CT,URI:hex('https://agama.finance/suitability/alice')},'Eligibility','Assessor issues suitability credential to Alice')
 await go(alice,{TransactionType:'CredentialAccept',Account:alice.address,Issuer:assessor.address,CredentialType:CT},'Eligibility','Alice accepts the credential (bilateral)')
