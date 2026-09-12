@@ -160,7 +160,37 @@ the same two runs.
 
 ---
 
-## 8. What worked
+## 8. First-loss cover: names mislead, measured live end to end
+
+**Category:** UX / protocol · **Severity:** high · **Repro:** `fuzz/default-cycle.mjs`
+
+Answering the Track feedback question directly: **the first-loss parameters do NOT behave as their
+names suggest.** Full delinquency cycle on the hackathon network (rc1, open-ended vault):
+
+| | |
+|---|---|
+| deposited | 100 XRP |
+| first-loss cover | 5 XRP |
+| `CoverRateMinimum` / `CoverRateLiquidation` | 10% / 50% |
+| loan, unpaid | 20 XRP |
+| naive UI `CoverAvailable / DebtTotal` | **25%** |
+| cover actually consumed on default | **1 XRP** |
+| **effective coverage** | **5%** |
+| loss absorbed by lenders (`AssetsTotal` 100 → 81) | **19 XRP** |
+
+The two rate fields **multiply** (10% × 50% = 5%), so two adjacent percentages that both read as
+"coverage" compound into something ~5× smaller. Also measured: `LoanManage` impair sets
+`LossUnrealized` to the *full* debt (20 XRP) before default realises the smaller net loss; and only
+the broker owner may call impair/default — the borrower and a lender both get `tecNO_PERMISSION`.
+Combined with self-dealing being permitted (see `fuzz/FUZZING.md` §5), one party can borrow the
+pool and be the only one able to declare its default.
+
+**Proposal.** Expose an `effectiveCoverage` figure in `vault_info`/broker queries, and state at the
+point of use that the two rates multiply. Reinforces XRPL-Standards PR #494.
+
+---
+
+## 9. What worked
 
 - **`signLoanSetByCounterparty` is correct in 5.2.0 and worked first try.** In `5.1.0` it signed
   with the plain transaction prefix instead of the dedicated counterparty prefix, so *every*
