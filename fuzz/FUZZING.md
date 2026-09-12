@@ -200,3 +200,13 @@ No rug-by-delete, and `DebtMaximum` is a real cap. Note the contrast: these path
 legible codes, while vault-config errors collapse to `temMALFORMED` (§4) and phase gates to
 `tecTOO_SOON`/`tecEXPIRED` (§ FEEDBACK 3). Since the protocol clearly can name the cause, the
 opaque codes elsewhere are a fixable inconsistency. Repro: `lifecycle-edges.mjs`.
+
+
+## 14. Re-gating is a manager lever but cannot trap a lender (protocol)
+
+The owner can `VaultSet` the `DomainID` to a different domain after a lender subscribed under the
+original one (`tesSUCCESS`) — go-forward eligibility is a unilateral manager power. But the
+now-ineligible lender can still `VaultWithdraw` its full balance (`tesSUCCESS`): withdrawal
+bypasses the current domain gate, so re-gating gates new deposits/transfers but **cannot trap a
+lender's capital**. Sensible safety property + real governance lever, neither documented.
+Repro: `domain-regate.mjs`.
