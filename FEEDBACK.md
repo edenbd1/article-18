@@ -190,6 +190,19 @@ point of use that the two rates multiply. Reinforces XRPL-Standards PR #494.
 
 ---
 
+## Further findings — fuzzing & differential testing
+
+A dedicated fuzzing pass (`fuzz/FUZZING.md`, reproducible scripts in `fuzz/`) adds, beyond the
+issues above: self-dealing is permitted (borrower = broker owner); XLS-65/66 transactions cannot
+be inner Batch transactions (`temINVALID_INNER_BATCH`) on both networks; `xrpl.js validate()` is
+systematically weaker than the codec; `ManagementFeeRate` has three conflicting bounds; the asset
+issuer can claw back both a lender's vault position and the first-loss cover (isolated, owner
+cannot); the domain eligibility gate holds on secondary share transfer; vault share math is sound
+against the ERC-4626 rounding/inflation family; and loan fixed-point math is identical across the
+two event binaries.
+
+---
+
 ## 9. What worked
 
 - **`signLoanSetByCounterparty` is correct in 5.2.0 and worked first try.** In `5.1.0` it signed
