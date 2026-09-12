@@ -1,0 +1,1476 @@
+                                             435
+           SVERIGES RIKSBANK
+      WORKING PAPER SERIES
+
+
+
+
+Supply-Chain Finance:
+An Empirical Evaluation of Supplier Outcomes
+
+
+
+
+Niklas Amberg, Tor Jacobson and Yingjie Qi
+May 2024
+                         WORKING PAPERS ARE OBTAINABLE FROM
+
+
+                                  www.riksbank.se/en/research
+                            Sveriges Riksbank • SE-103 37 Stockholm
+                                 Fax international: +46 8 21 05 31
+                             Telephone international: +46 8 787 00 00
+
+
+
+                     The Working Paper series presents reports on matters in
+                    the sphere of activities of the Riksbank that are considered
+                                to be of interest to a wider public.
+                   The papers are to be regarded as reports on ongoing studies
+                      and the authors will be pleased to receive comments.
+
+
+The opinions expressed in this article are the sole responsibility of the author(s) and should not be
+                   interpreted as reflecting the views of Sveriges Riksbank.
+                     Supply-Chain Finance:
+           An Empirical Evaluation of Supplier Outcomes*
+
+                      Niklas Amberg†               Tor Jacobson‡              Yingjie Qi§
+
+                              Sveriges Riksbank Working Paper Series
+                                         No. 435, May 2024
+
+
+
+                                                    Abstract
+         Buyers and suppliers have diverging interests about trade-credit maturities: buyers
+      desire long payment periods as a source of cheap funding, while suppliers prefer swift
+      payments to avoid locking up scarce liquidity in idle assets. A fast-growing financial
+      product innovation—supply-chain finance (SCF)—offers to resolve these diverging
+      interests, but its net effect on suppliers is a priori unclear. We study the effects of SCF
+      programs on suppliers using unique invoice-level data from a large Swedish bank. We
+      find that SCF programs relax suppliers’ liquidity constraints and thereby enable them to
+      grow their sales, employment, and investments.
+
+      Keywords: Trade credit; supply-chain finance; reverse factoring; financial constraints.
+
+      JEL: G21, G32, D22.
+
+
+
+
+   * We thank Thorsten Beck, Thomas Flanagan (discussant), Jonathan Hsu (discussant), Vasso Ioannidou, Elena
+
+Loutskina, Adriano Rampini, Karin Thorburn, and Fasheng Xu for valuable comments and suggestions. We are
+also grateful to several representatives of the data-providing bank for their patience in helping us understand
+the general features of the supply-chain finance market, as well as the specific characteristics of the bank’s own
+SCF programs. The opinions expressed in this article are the sole responsibility of the authors and should not be
+interpreted as reflecting the views of Sveriges Riksbank.
+   †
+     Research Division, Sveriges Riksbank. E-mail: niklas.amberg@riksbank.se.
+   ‡
+     Research Division, Sveriges Riksbank. E-mail: tor.jacobson@riksbank.se.
+   §
+     Copenhagen Business School. E-mail: yingjiee.qi@gmail.com.
+1        Introduction
+
+A common clash of interest in business-to-business transactions is the maturity of trade
+credit, i.e., the length of the period between the supplier’s delivery of goods and the buyer’s
+payment: buyers tend to want long maturities and suppliers short maturities, because
+whereas a buyer’s trade payable is an interest-free loan that strengthens its working-capital
+position, the corresponding trade receivable of the supplier is an idle asset locking up scarce
+liquidity. These diverging interests are particularly problematic when the bargaining posi-
+tions of the supplier and the buyer are unequal: Murfin and Njoroge (2015) show, for exam-
+ple, that when large retailers impose longer payment periods on their smaller suppliers, the
+latter are forced to curtail investment.
+        Governments around the world have recently responded to the problem of prolonged
+payment periods by legislating limits on trade credit maturities. While such legislation clearly
+improves the working-capital situation of financially constrained suppliers, it may also have
+unintended side effects by interfering with the useful purposes served by trade credit. Two
+recent empirical papers illustrate this trade-off. On the one hand, Barrot (2016) finds that a
+French reform that limited the maturity of invoices issued by trucking firms led to increased
+efficiency at the industry level, with growth in firm entry and reductions in firm default, es-
+pecially among financially constrained suppliers. On the other hand, a restriction imposed
+on the trade-credit terms that a large Chilean retailer could obtain from its smaller suppliers
+caused the retailer to internalize procurement to its own subsidiaries and reduce purchases
+from its suppliers (Breza and Liberman, 2017). These findings suggest that one-size-fits-all
+legislation of trade credit maturities is a blunt tool with unclear net effects on suppliers.
+        In this paper, we study a financial product innovation that instead offers a market-based
+resolution of suppliers’ and buyers’ incompatible interests regarding trade credit maturities.
+This innovation, known as supply-chain finance (or reverse factoring), was first introduced
+already in the 1980s, but has grown dramatically in recent years and is today an important
+product on financial markets across the world: a report from a leading trade association es-
+timates the global supply-chain finance volume in 2023 to be 2.35 trillion USD, up from 0.33
+trillion in 2015 (Figure 1), which is almost as large as the total volume of commercial and
+industrial loans extended by U.S. commercial banks (2.77 trillion USD in 2023).
+        A supply-chain finance (SCF) program is a financial arrangement that involves three par-
+ties: a supplier, a buyer, and a bank (or some other financier).1 The purpose is to separate the
+    1
+        There is, unfortunately, still no consensus on the exact definitions of the terms supply-chain finance and
+
+
+                                                          1
+                                     Figure 1: Estimated SCF volumes, 2015–2023
+
+                                   A. Globally                                                     B. By region
+               2,800                                                            1,400
+                                                                                           Americas
+               2,400                                                            1,200      Europe
+                                                                                           Asia
+               2,000                                                            1,000      Africa
+
+
+
+ USD billion                                                      USD billion
+               1,600                                                             800
+
+               1,200                                                             600
+
+                800                                                              400
+
+                400                                                              200
+
+                  0                                                                0
+                   2015 2016 2017 2018 2019 2020 2021 2022 2023                     2015 2016 2017 2018 2019 2020 2021 2022 2023
+
+
+This figure illustrates the development of SCF volumes in the world as a whole (Panel A) and by region (Panel
+B) between 2015 and 2023, according to the estimates provided in the trade association BCR Publishing’s annual
+World Supply Chain Finance Report. The figures are printed with BCR Publishing’s permission.
+
+
+
+dates on which the supplier gets its invoices paid and the dates on which the buyer pays the
+same invoices, and thereby to improve the working-capital situation for both parties. This is
+achieved in a way which is similar to traditional factoring: the bank steps in as a factor and
+purchases the invoices from the supplier at a discount shortly after they are issued, and then
+receives payment from the buyer when the invoices fall due. The bank thus finances each
+invoice during the period between the purchase and the payment, and receives interest via
+the discounted price at which it purchases the invoices.
+               The main difference between traditional factoring and supply-chain finance is the in-
+volvement of the buyer. In traditional factoring, there is no agreement between the buyer and
+the bank of any kind; instead, the supplier sells invoices to the bank without actively involving
+its buyers in the process. This exposes the bank to certain risks, such as performance risk and
+dispute risk, which makes it necessary for the bank to conduct credit assessments of both the
+supplier and the buyer involved. An SCF program, on the contrary, is set up at the initiative
+of a buyer, who signs a confirmation letter in which it commits to pay every invoice issued
+by its suppliers within the program no later than the due date (also known as an irrevocable
+payment undertaking), as well as approves every invoice to be financed by the bank. This fea-
+
+reverse factoring. We treat supply-chain finance and buyer-centric reverse factoring as interchangeable terms,
+but stick to the former throughout the paper and spell out exactly what we mean by this term in the following
+paragraphs. Note, though, that some treat supply-chain finance as a broader concept than we do—including,
+for example, pre-shipment finance and inventory finance—whereas others define supply-chain finance as we do
+while treating reverse factoring as a narrower concept.
+
+
+                                                              2
+ture of SCF programs, to be described in more detail below, implies that there is no need for
+the bank to screen or monitor the suppliers from a credit-risk perspective. Instead, the only
+risk faced by the bank in an SCF program is the default risk of the buyer, which means that
+the buyer’s creditworthiness determines the financing cost and other conditions of an SCF
+program. SCF programs thus enable less creditworthy suppliers to piggyback on buyers with
+stronger creditworthiness and thereby obtain better financing conditions than they could on
+their own. For this reason, the typical SCF program is initiated by a large, well-established
+buyer whose creditworthiness on average is stronger than those of its suppliers.
+       Given these features, SCF programs are often described as a win-win solution for the sup-
+plier and the buyer. However, SCF programs are in the great majority of cases also associated
+with prolonged payment periods: a buyer may, for example, pay the supplier within 40 days
+prior to the SCF program, but then stretch the payment period to 90 days while ensuring that
+the supplier is paid by the bank after ten days, at a discount computed based on a financing
+period of 80 days.2 The net effect of SCF programs on suppliers therefore depend on how
+large the interest-rate reduction is compared to the cost of longer payment periods, which
+increase the discount charged by the bank for any given interest rate. Thus, while SCF pro-
+grams clearly benefit the buyers that set them up—a buyer with a strong bargaining position
+wouldn’t initiate an SCF program unless it benefited from doing so—the effects of SCF pro-
+grams on suppliers are a priori less clear.
+       In this paper, we therefore undertake an empirical evaluation of the real and financial
+effects of SCF programs on suppliers. We do so using data from two sources. The first is a
+unique data set covering the entire SCF business of one of the major Swedish banks (hence-
+forth ‘the Bank’). The Bank started offering SCF programs on a small scale already in 2005
+and now operates SCF programs in four Nordic countries—Denmark, Finland, Norway, and
+Sweden—as well as in Germany and the UK. The data that the Bank has granted us access
+to comprise details on all invoices issued by suppliers in its Nordic SCF programs as well as
+on the programs themselves, most importantly the start date of each program and the iden-
+tities of the suppliers and buyers involved. The suppliers in the Bank’s Nordic SCF programs
+are from countries all over the world, but we restrict the analysis on suppliers from the ten
+countries with the most suppliers in the data, which are all European. The second data set is
+Bureau van Dijk’s Orbis, which comprises harmonized financial accounts data for public and
+private firms across the world, and is frequently used in cross-country firm-level studies (see,
+   2
+    The financing cost of SCF is collected from the supplier, since the bank purchases its invoices at a discount,
+but the cost can in principle be shared with the buyer by increasing the price of the good or service.
+
+
+                                                        3
+e.g., Gopinath et al., 2017; Dı́ez, Fan and Villegas-Sánchez, 2021; and Gourinchas et al., 2024).
+We use Orbis to retrieve key items from firms’ balance sheets and income statements, such
+as accounts receivable, sales, employment, cash holdings, total assets, debt, and fixed assets.
+   The empirical analysis centers on the hypothesis that SCF programs enable suppliers
+to grow by alleviating their liquidity constraints. We test this hypothesis using a matched
+difference-in-differences approach, in which we first match each supplier that enrolls in an
+SCF program with the Bank (treated firms) to a firm that never enrolls in an SCF program with
+the Bank (control firms) using nearest-neighbor matching, and then estimate difference-in-
+differences regressions on the matched sample. The key identifying assumption underlying
+this approach is that SCF suppliers would have developed similarly to their matched control
+firms had they not enrolled in SCF programs when they did. We provide reasons for why
+this assumption is likely to hold in section 2.3 below. We also corroborate the assumption
+empirically by showing that treated firms and control firms (i) are similar across a broad set
+of covariates in the year before treatment, and (ii) follow parallel trends over a five-year pre-
+treatment period for all outcome variables that we study.
+   The empirical analysis proceeds in three steps. The first is to verify that SCF program par-
+ticipation indeed reduces the number of days it takes for a supplier’s invoices to be paid. We
+find that suppliers’ receivables days on average decline by eight days in the years following
+SCF enrollment, which amounts to 20 percent of their average pre-SCF receivable days. The
+corresponding decline in the ratio of accounts receivable to assets is around four percentage
+points, which implies that a substantial amount of funding is freed up by the shorter receiv-
+able collection period that follows from a supplier’s enrollment in an SCF program.
+   The second step in the analysis is to examine the real effects of SCF programs. We find that
+suppliers’ sales, employment, and fixed assets significantly increase by around 10-15 percent
+in the years following SCF enrollment, but that the effect on suppliers’ profitability, as mea-
+sured by the EBITDA margin, is precisely zero. SCF programs thus enable suppliers to grow,
+but not necessarily to become more efficient.
+   The third and final step is to uncover the mechanisms underlying the real effects of SCF
+programs. We provide three pieces of evidence corroborating our hypothesis that the real ef-
+fects are due to relaxed liquidity constraints. First, we apply a test inspired by Banerjee and
+Duflo (2014): suppliers’ net debt should be constant or increase following SCF enrollment
+if the estimated real effects of SCF programs in fact are due to relaxed liquidity constraints.
+This is because a liquidity-constrained supplier would use the funds freed up by an SCF pro-
+
+
+
+                                                4
+gram to expand production or invest, rather than to reduce net debt by paying down debt
+or increasing cash holdings, as an unconstrained supplier would. We find that the estimated
+treatment effect of SCF programs on net debt is not significantly different from zero, which
+is consistent with the liquidity-constraint hypothesis. Second, we show that the share of the
+SCF buyer in a supplier’s total sales on average declines somewhat after the supplier’s enroll-
+ment in an SCF program. Hence, the increase in suppliers’ sales following SCF enrollment
+is mainly due to increased sales to non-SCF buyers, which speaks against the alternative hy-
+pothesis that the real effects are due to higher demand from the SCF buyer.
+   Third, and finally, we test for heterogeneity in treatment effects across suppliers that are
+more and less likely to be financially constrained prior to SCF enrollment. We find that SCF
+programs have statistically significant real effects on constrained suppliers, but not on un-
+constrained suppliers, and that the differences in the magnitudes of the respective treatment
+effects are large. Moreover, we show that net debt increases substantially for constrained
+suppliers following SCF enrollment, whereas unconstrained suppliers primarily respond by
+increasing cash holdings. These findings further corroborate the liquidity-constraint hypoth-
+esis. Moreover, the observed increase in net debt for constrained suppliers suggest that the
+real effects of SCF programs is due not only to the liquidity immediately freed up by the re-
+duced need to finance receivables, but also to some combination of (i) an improvement in
+the supplier’s access to external finance outside of the SCF program, and (ii) a reduction in its
+desired liquidity buffers as a consequence of lower liquidity risk.
+   This paper is to our knowledge the first empirical study of how supply-chain finance pro-
+grams affect suppliers. Whereas a large theoretical literature in operations research studies
+the costs and benefits of SCF for suppliers and buyers, the empirical literature is limited due
+to the scarcity of suitable data on SCF programs (see Gelsomino et al., 2016, for an extensive
+literature review and Kouvelis and Xu, 2021, for an important recent theoretical contribution).
+Our key contribution is therefore to document the real effects of SCF programs on suppliers—
+as well as the underlying mechanism by which these effects arise—and thereby provide novel
+evidence on the functioning of a fast-growing financing solution that has become an impor-
+tant part of financial markets in recent years. In doing so, we add to the literature on the real
+effects of trade credit arrangements (e.g., Barrot, 2016, and Breza and Liberman, 2017), as well
+as to the broader literature on how working-capital constraints affect firms’ ability yo develop
+and grow (e.g., Banerjee and Duflo, 2014, and Benmelech, Bergman and Seru, 2021).
+   The empirical papers closest to ours are Shou, Shao and Wang (2021)—who find posi-
+
+
+
+                                               5
+tive effects of SCF programs on the profitability of Chinese buyers—and Wuttke, Rosenzweig
+and Heese (2019) and Huang et al. (2020), who use survey data to study the determinants of
+supplier enrollment in SCF programs. More recently, Chuk, Lourie and Yoo (2024) use propri-
+etary data obtained from a large financial institution that acts as a third-party intermediary in
+SCF transactions to show that payable days within supplier-buyer pairs indeed are prolonged
+when supply-chain finance programs are adopted.
+
+
+
+2        Data and Empirical Framework
+
+2.1        Data sources
+
+The empirical analysis is based on two main data sets. The first was provided to us by one
+of the major Swedish banks (‘the Bank’) and contains detailed information about its entire
+Nordic receivables-financing business. More specifically, the data set covers every loan fa-
+cility extended by the Bank within its receivables-financing business, which consists of three
+main product offerings: lending secured by receivables, traditional factoring, and supply-
+chain finance (or ‘reverse factoring’). We observe both facility-level information—such as
+start date, interest rate, and advance rate—and information about each invoice financed un-
+der a given loan facility—for example the date the invoice was issued, the amount to be paid,
+the due date, the date the invoice was actually paid, and the respective identities of the sup-
+plier and the buyer. The receivables-finance data spans the period 2014–2022 and comprise
+around 90,000 loan facilities and nine million invoices in total. The main information that we
+extract from the Bank data is the identities of the suppliers that participate in SCF programs
+and the year in which they enrolled. Importantly, while the data only cover the period 2014–
+2022, we observe the start date of all loan facilities that were active at some point during this
+period. We can therefore include suppliers that enrolled in SCF programs prior to 2014 in the
+analysis as long as they remained enrolled in 2014.
+        The second main data set is Bureau van Dijk’s Orbis, which comprises harmonized
+financial-accounts data, as well as demographic and other corporate data, for almost 500
+million firms—public as well as private—from more than 100 countries.3 The data in Orbis
+is sourced from more than 170 governmental and commercial information providers across
+the globe; the financial-accounts data for European firms, which is what we use in this paper,
+are primarily sourced from official national business registers. We use the Orbis Historical
+    3
+        For a thorough description of the Orbis database, see Kalemli-Özcan et al. (2024).
+
+
+                                                            6
+Disk to ensure that our data comprise all firms that were active at any given point in time,
+rather than only firms that are still active today (Kalemli-Özcan et al., 2024). Since firms in
+most countries can choose the start and end month of their fiscal year, many observations
+in the Orbis data do not correspond to calendar years. We deal with this by interpolating the
+financial statements so that each observation corresponds to a calendar year.4
+
+
+2.2     Institutional details regarding the Bank’s SCF programs
+
+The first step in the initiation of an SCF program is that a buyer submits a proposal to the
+Bank to organize an SCF program on its behalf. The Bank then evaluates the buyer to de-
+termine if it meets the criteria for becoming an SCF buyer. The requirements on buyers are
+quite restrictive: the Bank will typically only initiate SCF programs for large and established
+buyers with strong creditworthiness. If the Bank and the buyer can agree on the terms of an
+SCF program, the next step is for the buyer and the Bank to determine which of the buyer’s
+suppliers to include in the program. The main requirement is that the inclusion of the sup-
+plier generates a profit for the Bank, which in practice means that the supplier has to have a
+sufficiently large annual sales volume to the SCF buyer and thus generate business volumes
+that are large enough to cover the fixed costs associated with including it.5 While the Bank
+does not apply a strict size threshold, a supplier typically has to be at least medium-sized ac-
+cording to the official EU firm-size definition to generate business volumes large enough to
+motivate its inclusion in an SCF program.
+      Two key contracts are drawn up at the inception of an SCF program. First, the supplier
+and the Bank signs a contract which states that the Bank intends to buy the invoices that the
+supplier issues to the SCF buyer. The Bank also ensures at this stage that the seller under-
+stands how to correctly assign invoices, so that the Bank obtains right in rem in all invoices
+issued within the program. Second, the buyer signs a “confirmation letter” in which it com-
+mits to pay the Bank for all invoices issued within the program no later than the respective
+due dates. These contracts ensure that the financing provided by the Bank through an SCF
+program is only exposed to the credit risk of the buyer, which is what enables suppliers in SCF
+programs to obtain funding at conditions determined by the buyer’s creditworthiness.
+      Once an SCF program is up and running, the financing process works as follows. The sup-
+   4
+     The length of the fiscal year is typically twelve months, but it can be shorter or longer when a firm enters or
+exits, or when it changes the timing of its fiscal year. Our interpolation procedure handles these cases by rescaling
+flow variables so that they correspond to twelve-month periods.
+   5
+     Recall that the Bank is not exposed supplier-side credit risk and that the supplier’s creditworthiness is there-
+fore not part of the evaluation.
+
+
+                                                         7
+plier sends the buyer an invoice assigned to the Bank following each delivery. After inspecting
+the delivery, the buyer approves the invoice and passes it on to the Bank, a critical step in the
+process since the buyer’s approval eliminates any dispute risk around the invoice. The Bank
+then pays the supplier the invoice amount minus the discount—the average time between in-
+voice issuance and receipt of payment is around seven days in our data, of which the majority
+is the time taken by the buyer to approve the invoice. After this, the supplier is essentially out
+of the process as far as that particular invoice is concerned: the receivable disappears from
+the supplier’s balance sheet and is replaced by an increase in cash holdings corresponding
+to the amount received from the Bank. The previous receivable then shows up as a loan on
+the asset side of the Bank’s balance sheet; for the buyer, meanwhile, the liability remains as a
+payable on the balance sheet throughout the entire period.6 Finally, the buyer pays the Bank
+no later than the due date of the invoice, which extinguishes the payable from the buyer’s
+balance sheet and the loan from the Bank’s balance sheet, and concludes the financing of the
+invoice.
+      The discount charged by the Bank is computed on the basis of an interest rate—which
+itself is the sum of a base rate and a margin—and the remaining days of the invoice at the
+time the Bank purchases it, according to the following formula:
+                                                                                
+                                                                        Days
+                           Discount = N ominalAmount ·                         ·i ,                            (1)
+                                                                      DayCount
+
+where N ominalAmount is the face value of the invoice, i is the interest rate (base rate plus
+margin), Days is the number of remaining days until the invoice’s due date, and DayCount is
+the number of days in the year according to the day count convention used in the program
+(typically 360 or 365).
+
+
+2.3     Empirical approach
+
+The purpose of the empirical analysis is to evaluate the real and financial effects of SCF pro-
+grams on suppliers. We do so using a matched difference-in-differences approach, in which
+we first match each supplier that enrolls in an SCF program with the Bank (treated firms) to
+a firm that never enrolls in an SCF program with the Bank (control firms), and then estimate
+   6
+     The classification of SCF liabilities as accounts payable (rather than bank debt) on the buyer’s balance sheet
+has been the subject of controversy in recent years, with accounting firms and credit rating agencies calling for
+increased transparency around buyers’ use of SCF. The accounting associations FASB and IASB have therefore
+introduced new rules, according to which buyers may continue to classify SCF liabilities as trade payables, while
+being required to disclose the size and key conditions of the programs in their financial statements.
+
+
+                                                        8
+standard two-way fixed effects regressions on the matched sample.
+   More specifically, we begin by defining a firm as treated starting from the year in which
+it enrolls in an SCF program with the Bank in the capacity of supplier. We then match each
+treated firm with one control firm using Abadie and Imbens’ (2006) nearest-neighbor match-
+ing approach and a small set of matching variables measured in the year prior to each treated
+firm’s SCF enrollment. We conduct the matching with replacement—which implies that a
+control firm may be matched to several treated firms—and using the Mahalanobis weighting
+matrix to account for scale differences between the matching covariates.
+   Having constructed the matched sample, we estimate the following two-way fixed effects
+regression with event-time indicators:
+
+                               5                               5
+                                      γ k · 1 [t − Ti = k] +          β k · 1 [t − Ti = k] · Di + εi,t ,
+                               X                               X
+          Yi,t = αi + ηj,t +                                                                               (2)
+                               k=−5                            k=−5
+
+
+where Yi,t is the outcome of interest for firm i in year t, αi and ηj,t are firm and industry-year
+fixed effects, Di is a treatment indicator equal to one if firm i enrolls in an SCF program with
+the Bank at some point during the sample period, and 1 [t − Ti = k] is an indicator for being
+k years from the SCF enrollment year. Note that the enrollment year Ti , and thus also the
+indicator variable 1 [t − Ti = k], are defined at the level of matched pairs—i.e., a control firm
+is assigned the same value for Ti as the treated firm to which it is matched. The coefficients
+of interest are the β k for the post-treatment years (k ≥ 0), which capture the effect of SCF
+program participation over a k-year horizon. The β k for the pre-treatment years, meanwhile,
+capture any differences in pre-treatment trends between SCF firms and non-SCF firms and
+are thus a key diagnostic for assessing the validity of the research design. We winsorize all
+dependent variables at the first and the ninety-ninth percentiles and cluster standard errors
+by firm in all regressions.
+   It is occasionally convenient to have a single estimated treatment effect to refer to. We will
+therefore also make use of the following compact pre-post version of equation (2):
+
+
+                 Yi,t = αi + ηj,t + γ · 1 [t − Ti ≥ 0] + β · 1 [t − Ti ≥ 0] · Di + εi,t ,                  (3)
+
+
+where [t − Ti ≥ 0] is an indicator for years after the SCF enrollment year, and all other vari-
+ables are defined as before. The estimate of the coefficient β from (3) captures the average
+effect of SCF enrollment on the dependent variable over the entire post-treatment period.
+   Two remarks on the empirical approach are in order. First, we do not deem endogene-
+
+                                                      9
+ity stemming from a supplier’s decision to join an SCF program at a specific point in time to
+be a major threat to the analysis. To begin with, SCF programs are set up at the initiative of
+large buyers with many suppliers, which implies that the opportunity to join an SCF program
+at a given point in time is essentially beyond any individual supplier’s control.7 Moreover,
+few suppliers turn down an invitation to join an SCF program, according to the Bank; hence,
+there is little scope for endogeneity stemming from suppliers’ decisions about whether to en-
+roll in SCF programs once the opportunities arise.8 Hence, it is likely that the timing of a
+supplier’s enrollment in an SCF program is largely exogenous to the characteristics of the
+supplier, which is necessary to obtain unbiased estimates of the effects of SCF program par-
+ticipation on suppliers. We will later corroborate this claim by showing that treated firms and
+control firms (i) are similar across a broad set of covariates in the year before treatment, and
+(ii) follow parallel pre-treatment trends for all outcome variables that we study.
+       It is, on the other hand, true that firms enrolling in SCF programs tend to differ from the
+average firm in the economy in certain dimensions—for example, SCF suppliers are on aver-
+age larger and older than other suppliers. These differences are due to the fact that only sup-
+pliers of large and established buyers get the opportunity to enroll in SCF programs, which
+implies that the pool of potential SCF suppliers is a non-random subset of the population
+of firms. Hence, the external validity of our results are limited to suppliers of large and es-
+tablished buyers, but the fact that only a subset of suppliers get the opportunity to enroll in
+SCF programs is not in itself a threat to the internal validity of the results. These considera-
+tions guide our matching strategy, which is to conduct the matching based on a small set of
+basic firm characteristics to increase the likelihood that controls are drawn from the pool of
+potential SCF suppliers.
+       Second, a series of recent papers have pointed out that two-way fixed effects models can
+produce severely biased results when applied to settings with staggered treatment, like ours
+(see, e.g., de Chaisemartin and D’Haultfœuille, 2020, Callaway and Sant’Anna, 2021, and
+Baker, Larcker and Wang, 2022). In short, the bias arises when treatment effects vary over
+time and already-treated units act as controls, and can be severe enough to lead staggered
+DiD effect estimates to have the opposite sign of the true treatment effect even if treatment
+
+   7
+     Senior staff at the Swedish receivables-finance division of the Bank informed us in an interview that they
+could only recall a single case in which an SCF program was set up at the initiative of a supplier.
+   8
+     The specific reason for why so few suppliers turn down an offer to join an SCF program does not matter
+here—for example, whether it is because they judge SCF programs to be beneficial or because they are pressured
+into enrolling by important buyers. What matters is that most suppliers—for whatever reason—make the same
+choice and thus that there is limited variation across suppliers that could give rise to selection bias.
+
+
+                                                      10
+assignment is random. We ensure that our estimates are not subject to this type of bias by
+only selecting never-treated firms as controls when matching. The feasibility of this stringent
+“clean control” condition in our setting is due to the large number of never-treated suppliers
+with characteristics similar to the treated suppliers, which allows us to find good matches for
+the treated firms among the never-treated firms.
+
+
+2.4     Sample construction and matching
+
+To construct the sample for the empirical analysis, we begin by identifying all firms that show
+up as suppliers in SCF programs in the data from the Bank. While the majority of buyers that
+set up SCF programs with the Bank are Nordic firms, many of their suppliers are not. Hence,
+our initial data set consists of suppliers from all over the world, although the majority are
+Nordic firms and most of the remainder are firms from other European countries. We restrict
+the sample to firms from the ten countries with the most suppliers, which are the following
+(ordered by number of suppliers in the raw data): Denmark, Sweden, Germany, Finland, Nor-
+way, the Netherlands, Poland, Lithuania, Estonia, and Spain. Imposing this restriction leaves
+911 of the initial 985 suppliers in the data.
+      The next step is to merge the SCF suppliers with the Orbis data to obtain an annual firm-
+level panel with financial-accounts data. The challenge in doing so is that we do not have an
+unambiguous firm identifier common to both data sets. We therefore begin by undertaking
+exact matching based on company names and then search manually in the Orbis database to
+identify the correct match for the suppliers that we fail to match exactly on name. Through
+these two steps, we are able to identify almost 75 percent of the SCF suppliers in the Orbis
+data; for the remaining suppliers, we are either unable to identify a candidate match alto-
+gether, or to identify a candidate that we are sufficiently confident is the correct one. The
+final sample consists of 652 SCF suppliers with the following country distribution: Denmark
+(258), Sweden (213), Germany (33), Finland (32), Norway (32), Lithuania (22), Estonia (17),
+Spain (16), the Netherlands (15), and Poland (14).9 The SCF enrollment years for the sample
+suppliers span the period 2005–2022.
+      The final step in the sample construction is to match one control supplier to each SCF
+supplier. As described above, we conduct the matching based on covariates measured in year
+   9
+     A limitation of the Orbis data is that sales is missing for around half of the Danish SCF suppliers. This is a
+consequence of Danish law, which does not mandate all firms to report sales figures in their financial accounts. To
+avoid reducing sample size unnecessarily, we keep these suppliers and include them in the estimations whenever
+possible (we exclude sales from the set of matching variables when we match control firms to these suppliers).
+The number of observations will therefore be lower in estimations where sales is part of the dependent variable.
+
+
+                                                        11
+Ti − 1, where Ti is the year in which supplier i enrolled in an SCF program with the Bank. We
+match exactly on country and two-digit NACE industry, and then find the nearest neighbor
+within the respective country-industry cells based on the Mahalanobis distance between the
+treated firms and the potential controls in terms of the following matching variables: log as-
+sets, log sales, number of employees, and the ratios of debt to assets, EBITDA to assets, and
+cash holdings to assets.
+         The outcome of the matching procedure is summarized in Table 1, in which we assess
+the covariate balance between treated firms and their matched control firms in year Ti − 1.
+We conduct the comparison in terms of the matching variables (Panel A), as well as a set of
+variables not used in the matching (Panel B), and based on a comparison metric proposed by
+Imbens and Rubin (2015), namely, the normalized difference in means. This metric captures
+the difference in means across two groups expressed in terms of standard deviations and has
+the desirable property that the likelihood of rejecting equality of means does not increase me-
+chanically with sample size, which is the case for standard t-tests. Table 1 demonstrates that
+treated firms and control firms are quite similar across all variables under consideration—to
+see this, note that most normalized differences are close to zero and that the magnitude of
+the largest difference is only 0.32.10 Hence, treated firms do not appear to differ meaningfully
+from control firms in the year before their enrollment in an SCF program.
+
+
+
+3         Results
+
+3.1        The effect of SCF program participation on receivable days
+
+The first step in the empirical analysis is to verify that SCF program participation indeed re-
+duces the number of days it takes for suppliers’ invoices to be paid (receivable days). We
+do so by estimating the baseline difference-in-differences model with a supplier’s average
+receivable days as dependent variable (we follow standard practice and proxy average receiv-
+able days as the ratio of accounts receivable to sales multiplied by 365). The results of this
+exercise, plotted in Panel A of Figure 2, show that the receivable days of treated firms and con-
+trol firms follow parallel trends in the years leading up to the former’s enrollment in the SCF
+program. The receivables days of treated firms then decline significantly relative to control
+firms—the decline takes place gradually over the supplier’s first year in the SCF program and
+    10
+    As a point of reference, Imbens and Rubin (2015) observe a maximum normalized difference of 0.30 in an
+analysis of the data from an experiment with random treatment assignment and judge this to be evidence of
+strong covariate balance.
+
+
+                                                   12
+                                         Table 1: Covariate balance
+
+
+                                         Treated (SCF firms)           Matched controls           Normalized
+
+                                          Mean            SD           Mean            SD          difference
+
+ A. Covariates used in matching
+ Assets (MEUR)                             76.6          287.0          75.4          302.9            0.00
+ Sales (MEUR)                             172.5          579.5         161.5          609.6            0.02
+ Number of employees                       302            948            254           859             0.05
+ Debt/Assets                               0.68           0.20          0.62           0.23            0.32
+ EBITDA/Assets                             0.13           0.17          0.13           0.15           –0.02
+ Cash/Assets                               0.08           0.12          0.08           0.12           –0.01
+
+
+ B. Other covariates
+ Accounts receivable/Sales                 0.11           0.08          0.10           0.08            0.20
+ Accounts payable/Assets                   0.18           0.14          0.14           0.14            0.28
+ Asset tangibility                         0.26           0.22          0.30           0.24           –0.17
+ EBITDA/Sales                              0.05           0.07          0.05           0.07           –0.06
+ Net working capital/Assets                0.34           0.21          0.32           0.22            0.12
+ Investment/Assets                         0.07           0.12          0.08           0.14           –0.03
+
+ Number of firms                                   652                          652
+ Number of unique firms                            652                          626
+
+This table compares treated firms with the matched control firms in the year before the treated firm enrolled
+in an SCF program with the bank. The covariates listed in Panel A were used in the matching; those in Panel
+B were not. Asset tangibility is defined as the ratio of fixed assets to total assets. The normalized difference is
+                           2           2
+                                              0.5
+defined as X̄Z<0 − X̄Z≥0 / SZ<0       + SZ≥0  /2     , where X̄ and S are the means and standard deviations of the
+comparison variables in the respective groups (Imbens and Rubin, 2015).
+
+
+
+
+                                                         13
+                   Figure 2: The effect of SCF program participation on acounts receivable
+
+                              A. Receivable days                                                                   B. Receivables/Assets
+         6                                                                                     6
+
+         3                                                                                     4
+                                                                                               2
+
+
+
+
+                                                                          Percentage points
+         0
+                                                                                               0
+         -3
+ Days                                                                                          -2
+         -6
+                                                                                               -4
+         -9
+                                                                                               -6
+        -12                                                                                    -8
+        -15                                                                                   -10
+              -5   -4   -3    -2 -1       0    1    2    3   4   5                                  -5   -4   -3    -2 -1       0    1    2    3   4   5
+                             Years relative to SCF start                                                           Years relative to SCF start
+
+
+This figure plots the β k coefficients from the estimation of equation (2) with average receivable days (Panel A)
+and the ratio of accounts receivable to assets (Panel B), respectively, as dependent variables. Average receivable
+days are defined as the ratio of accounts receivable to sales multiplied by 365. The vertical lines correspond to
+95-percent confidence intervals.
+
+
+
+
+then stabilizes at a statistically significant decrease of around eight days, which corresponds
+to around 20 percent of average pre-SCF receivable days. The results are very similar when
+we instead estimate the model with the ratio of accounts receivable to assets as dependent
+variable: after a gradual decline over the first year after SCF enrollment, the ratio stabilizes at
+a level around four percentage points below its pre-SCF level (Panel B, Figure 2).
+        The estimated decrease of eight days is very close to what one would expect, as the follow-
+ing back-of-the-envelope calculation demonstrates. The average ratio of accounts receivable
+to sales was 0.11 among treated suppliers in the year before SCF enrollment (Table 1, Panel
+B), which implies an average receivable period of just over 40 days. The average time to pay-
+ment for invoices in the SCF program, on the other hand, is around seven, which implies
+that the days to payment for invoices to the SCF buyer on average decrease by 33 days when
+the supplier enrolls in the SCF program (provided that the pre-SCF maturity of invoices to
+the SCF buyer corresponded to the supplier’s average invoice maturity). Finally, the average
+share of the SCF buyer in the SCF supplier’s sales was 20 percent in the SCF enrollment year
+(see Figure 4 below). Given this, we would expect a supplier’s receivable period to decline by
+33 · 0.20 = 6.6 days on average when enrolling in an SCF program, which, reassuringly, is close
+to what we estimate in the data.11
+  11
+    The slightly higher estimate in the data suggests that the pre-SCF maturity of invoices to the SCF buyer was
+around 5-7 days higher than the supplier’s average invoice maturity.
+
+
+                                                                     14
+                            Table 2: Real effects of SCF program participation
+
+
+                                      (1)                    (2)                    (3)                    (4)
+                                     Sales            Employment              Fixed assets           Profitability
+
+   Treated × Post                  0.123***               0.088***              0.155***                –0.003
+                                    [0.041]               [0.030]                [0.053]                [0.003]
+
+
+   Firm FE                            Yes                    Yes                    Yes                   Yes
+   Industry-year FE                   Yes                    Yes                    Yes                   Yes
+
+   Number of obs.                    8,243                 10,770                11,157                  8,243
+   Adjusted R2                       0.955                 0.954                  0.925                  0.531
+
+This table reports estimation results for the compact difference-in-differences model specified in (3) where the
+dependent variable is log sales, log employment, the ratio of investments to assets, and the ratio of EBITDA to
+sales, respectively. Treated × Post refers to the main interaction term in equation (3), 1 [t − Ti ≥ 0] · Di . Standard
+errors clustered by firm are reported in square brackets. ***, **, and * denote statistical significance at the ten, five,
+and one percent levels, respectively.
+
+
+
+
+3.2     The real effects of SCF program participation
+
+Having documented that SCF program participation leads to a statistically and economically
+significant decline in suppliers’ receivable days, we turn to the real effects of SCF programs
+on suppliers. We assess the real effects by estimating the difference-in-differences models
+with, in turn, log sales, log employment, log fixed assets, and profitability (EBITDA margin)
+as dependent variables. We begin by reporting results for the compact pre-post model.
+      Column (1) in Table 2 shows that enrollment in an SCF program leads a supplier’s sales
+to increase by a statistically significant 12.3 percent. The estimated employment and fixed-
+assets effects, reported in columns (2) and (3), are also statistically significant and of similar
+magnitude as the sales effect: employment increases by 8.8 percent, and fixed assets by 15.5
+percent, in the years following a supplier’s enrollment in an SCF program. These results sug-
+gest that SCF programs have a substantial positive effect on the real activity of suppliers. The
+results in column (4) show, on the other hand, that the effect of SCF programs on suppliers’
+profitability, as measured by the EBITDA margin, is precisely zero. Hence, SCF programs ap-
+pear to enable suppliers to operate on a larger scale, but not more efficiently—or, conceivably,
+
+                                                           15
+                                                Figure 3: Real effects of SCF program participation
+
+                                                  A. Sales                                                                               B. Employment
+                     40                                                                                    25
+
+                     30                                                                                    20
+
+                                                                                                           15
+                     20
+
+
+ Percent                                                                               Percent
+                                                                                                           10
+                     10
+                                                                                                                5
+                      0
+                                                                                                                0
+                     -10                                                                                    -5
+
+                     -20                                                                                   -10
+                           -5   -4   -3    -2 -1       0    1    2    3   4   5                                     -5    -4    -3    -2 -1       0    1    2    3   4   5
+                                          Years relative to SCF start                                                                Years relative to SCF start
+
+                                             C. Fixed assets                                                                             D. Profitability
+                     40                                                                                    3
+
+                     30                                                                                    2
+
+
+
+
+ Percentage points                                                                     Percentage points
+                                                                                                           1
+                     20
+                                                                                                           0
+                     10
+                                                                                                           -1
+                      0
+                                                                                                           -2
+                     -10                                                                                   -3
+
+                     -20                                                                                   -4
+                           -5   -4   -3    -2 -1       0    1    2    3   4   5                                 -5       -4    -3     -2 -1       0     1   2    3   4   5
+                                          Years relative to SCF start                                                                Years relative to SCF start
+
+
+This figure plots the β k coefficients from the estimation of equation (2) with log sales (Panel A), log employment
+(Panel B), log fixed assets (Panel C), and the ratio of EBITDA to sales (Panel D) as dependent variables. The vertical
+lines correspond to 95-percent confidence intervals.
+
+
+
+any efficiency gains enabled by SCF program participation are offset by the discount on the
+invoice payment that the supplier receives from the bank.
+                     We now turn to the results from the estimation of the dynamic difference-in-differences
+model, which are reported in Figure 3. Note first that the pre-treatment trends are parallel for
+all four dependent variables, which demonstrates that the real activity of treated firms and
+control firms developed similarly in the five-year period leading up to the former’s enroll-
+ment in an SCF program. This further corroborates the claim that the timing of a supplier’s
+enrollment in an SCF program is largely exogenous to the characteristics of the supplier itself.
+Next, the coefficients for the post-treatment periods show that the sales, employment, and
+investment effects of SCF program participation develop gradually over the post-treatment
+period, which shows the beneficial effects of SCF program participation are long-lasting (al-
+
+                                                                                  16
+though the effect estimates become somewhat less precise for longer estimation horizons, in
+particular for fixed assets).
+
+
+3.3       Uncovering the mechanism: The role of liquidity constraints
+
+Our hypothesis is, as discussed above, that the increase in suppliers’ real activity following en-
+rollment in SCF programs is due to relaxed liquidity constraints. There are, generally speak-
+ing, three channels through which an SCF program may relax a supplier’s liquidity constraints
+and thereby enable it to grow. First, the reduction in receivable days induced by an SCF pro-
+gram immediately improves a supplier’s liquidity by freeing up funds that were previously
+locked up in receivables, which can then be used to finance production expansions. Second,
+to the extent that lenders look favorably on firms with shorter receivable collection periods,
+suppliers’ own access to external finance may improve following enrollment in an SCF pro-
+gram. Third, SCF programs essentially eliminate the risk of late payments on invoices issued
+to SCF buyers and thereby reduce the liquidity risk faced by suppliers. SCF suppliers may
+consequently be able to reduce precautionary liquidity buffers and thereby free up funds for
+operational purposes.12 In what follows, we conduct a series of empirical exercises to shed
+light on the mechanisms underlying the real effects of SCF programs.
+
+
+3.3.1      The effect of SCF programs on suppliers’ net debt
+
+We begin by assessing the effect of SCF programs on suppliers’ net debt. The idea, which
+follows the logic of Banerjee and Duflo (2014) closely, is the following. A supplier whose pro-
+duction is suboptimally small due to liquidity constraints will use the funds freed up by an
+SCF program to expand production; an unconstrained supplier operating at its desired level
+of output will, on the other hand, use the unlocked liquidity to reduce net debt by either pay-
+ing down debt or increasing cash holdings. Hence, we should not observe a decline in net
+debt following SCF enrollment if the estimated real effects of SCF programs indeed are due to
+relaxed liquidity constraints.
+       We implement the test by estimating the pre-post version of the difference-in-differences
+model with net debt and its respective components as dependent variables. The results are
+reported in Table 3. The estimated effect of SCF program participation on net debt, reported
+in column (1), is small and statistically insignificant, which is consistent with the hypothe-
+sis that relaxed liquidity constraints explain the real effects of SCF programs on suppliers.
+  12
+       See Amberg et al. (2023) for a general argument along these lines.
+
+
+                                                          17
+                Table 3: Effects of SCF program participation on financial variables
+
+
+                                 (1)               (2)              (3)                (4)               (5)
+                             Net debt/          Cash/          Total debt/       Short-term        Long-term
+                              Assets            Assets           Assets          debt/Assets       debt/Assets
+
+  Treated × Post                0.005           0.009*            0.016*            0.015*             0.001
+                               [0.011]          [0.005]           [0.009]           [0.009]           [0.006]
+
+
+  Firm FE                        Yes              Yes               Yes               Yes                Yes
+  Industry-year FE               Yes              Yes               Yes               Yes                Yes
+
+  Number of obs.               10,910           10,992            11,344            11,428             11,345
+  Adjusted R2                   0.703            0.614             0.717             0.719             0.693
+
+This table reports estimation results for the compact difference-in-differences model specified in (3) with net
+debt and its respective components as dependent variables. Treated × Post refers to the main interaction term in
+equation (3), 1 [t − Ti ≥ 0] · Di . Standard errors clustered by firm are reported in square brackets. ***, **, and *
+denote statistical significance at the ten, five, and one percent levels, respectively.
+
+
+
+
+More specifically, that the estimated net-debt effect is not significantly different from zero
+suggests that the primary explanation for the real effects is the first mechanism discussed
+above—namely, the immediate impact of shorter receivable collection periods on suppliers’
+liquidity—because the second and third mechanisms imply that net debt should increase fol-
+lowing a supplier’s enrollment in an SCF program.
+    In columns (2)-(5), we unpack the overall net-debt effect by looking at each component of
+net debt separately. Columns (2) and (3) show that the overall (insignificant) increase in the
+ratio of net debt to assets of 0.5 percentage points reported in column (1) is due to an increase
+in the ratio of debt to assets of 1.6 percentage points and an increase in the ratio of cash
+holdings to assets of 0.9 percentage points. Hence, the increase in borrowing is largely offset
+by the simultaneous increase in cash holdings. The results in columns (4) and (5), meanwhile,
+show that the increase in total debt is entirely due to an increase in short-term debt.
+    The corresponding estimation results from the the dynamic difference-in-differences
+model are reported in Figure B1 in Online Appendix B; the main take-away is that treated
+firms and control firms follow parallel pre-treatment trends in terms of net debt as well as all
+components of net debt. Otherwise, the dynamic effect estimates yield the same conclusion
+
+                                                         18
+as one obtains from Table 3: SCF programs do not have a significant effect on net debt, as
+the modest increases in cash holdings and debt offset each other. That suppliers on average
+increase both debt and cash holdings following SCF enrollment is at first sight puzzling, but
+turns out to have a straightforward explanation, as we will show in section 3.3.3 below.
+
+
+3.3.2    The share of SCF buyers in SCF suppliers’ total sales
+
+If liquidity constraints explain the real effects of SCF programs, we should observe a broad-
+based increase in suppliers’ sales following SCF enrollment, rather than an increase driven
+exclusively by higher sales to the SCF buyer. An alternative hypothesis is that buyers initiate
+SCF programs when they grow fast and have high demand for intermediate inputs, and that
+the sales increase of their suppliers following SCF enrollment therefore is due to higher de-
+mand rather than relaxed liquidity constraints. If so, we would expect the share of the SCF
+buyer in a supplier’s total sales to grow following the latter’s enrollment in an SCF program,
+whereas we would expect it to remain constant or decrease if the overall sales increase is
+due to relaxed liquidity constraints. Our second test of the liquidity-constraint hypothesis is
+therefore to assess how the sales share of SCF buyers in SCF suppliers’ total sales develop in
+the years following the latter’s enrollment in SCF programs.
+    To this end, we aggregate all invoices issued by the SCF supplier to the SCF buyer in each
+year and compute the sales share of the SCF buyer as the total invoiced amount during a
+given year divided by the supplier’s total sales for the same year, as reported in its financial
+accounts. We then plot how the average sales share of the SCF buyer develops in the years
+following a supplier’s enrollment in an SCF program. Before doing so, two data limitations
+are important to point out. First, we only observe the invoices issued by SCF suppliers to
+SCF buyers after the SCF program has commenced, which implies that we cannot assess pre-
+treatment trends in the sales share of the SCF buyer.13 Second, we only observe invoice-level
+data from 2014 and onwards, and can therefore not include suppliers that enrolled in SCF
+programs earlier than this in our assessment of SCF buyers’ sales shares.
+    We plot the average sales share of the SCF buyer in the SCF supplier’s total sales in Figure
+4. The figure shows that the average sales share is 20 percent in the year in which the supplier
+enrolls in the SCF program; it then gradually declines over the following two years before
+   13
+      Since few SCF programs begin exactly at the start of a calendar year and we only observe invoices issued after
+the start of a program, we need to re-weight the sales volume to the SCF buyer in the first year to get the sales
+share right. We do this by dividing the observed sales volume to the SCF buyer in year t = 0 with the share of the
+year in which the SCF program was active. Note also that a few observed shares are either smaller than zero or
+larger than one; we handle these by dropping the former and setting the latter to one.
+
+
+                                                        19
+        Figure 4: The average sales share of the SCF buyer in the SCF supplier’s total sales
+
+                                   .3
+
+                                  .25
+
+                                   .2
+
+
+                    Sales share
+                                  .15
+
+                                   .1
+
+                                  .05
+
+                                   0
+                                        0   1          2           3        4                     5
+                                                Years relative to SCF start
+
+This figure plots the average share of the SCF buyer in an SCF supplier’s total sales in the years following the latter’s
+enrollment in an SCF program with the Bank. The sales share is computed as the ratio of the total invoice amount
+to the SCF buyer during a given year, as observed in the bank data, to the supplier’s total sales during the same
+year, as reported in its financial accounts. We re-weight the invoice amount to the SCF buyer in year t = 0 by
+dividing it with the share of the year in which the SCF program was active; the latter is computed as the number
+of days from the first SCF invoice to the last day of the year, divided by 365.
+
+
+
+stabilizing at around 16 percent from that point onwards. The decline in the sales share of
+the SCF buyer suggests that the sales increase observed after a supplier’s enrollment in an
+SCF program is predominantly accounted for by increased sales to non-SCF buyers. This is
+consistent with the notion that SCF programs enable suppliers to grow by relaxing liquidity
+constraints, and speaks against the alternative hypothesis that the sales growth observed after
+SCF enrollment is due to higher demand from the SCF buyer.
+
+
+3.3.3    Heterogeneity in treatment effects depending on ex-ante financial constraints
+
+The final test of the liquidity-constraint hypothesis is based on cross-sectional heterogeneity
+in treatment effects across firms that are more and less likely to be financially constrained.
+The logic is straightforward: if the real effects of SCF programs are due to relaxed liquidity
+constraints, we should observe stronger real effects among firms that are ex-ante more likely
+to be financially constrained. We implement the test by estimating a triple-differenced ver-
+sion of the compact difference-in-differences model, where the additional interaction term
+
+                                                          20
+is an indicator for whether a firm is financially constrained.
+       Our measure of financial constraints is, following Aretz, Campello and Marchica (2020),
+based on Ferrando et al.’s (2015) financial-constraint index, which is created on the basis of
+data from ECB’s SAFE survey on firms’ access to finance. The SAFE index is—like other widely
+used proxies for financial constraints, such as the Kaplan-Zingales and Whited-Wu indices—
+computed using the coefficients from a regression of a financial constraint indicator on a set
+of observable firm characteristics. This index is well-suited for our empirical setting, since it
+is derived from firm-level data that largely cover the same countries and time periods as our
+data; we thereby mitigate the problem that a specific financial-constraint index may become
+uninformative when applied to firms that are different from those used to construct the index
+(see, e.g., Whited and Wu, 2006, and Farre-Mensa and Ljungqvist, 2016).
+       We proceed by computing the SAFE index for each firm in our sample and then assign-
+ing firms in the bottom tercile of the distribution to the group of firms that ex-ante are
+less likely to be financially constrained (low SAFE score/unconstrained) and firms in the
+top tercile to the group of firms that ex-ante are more likely to be constrained (high SAFE
+score/constrained).14 Having done so, we estimate the following triple-differenced version of
+the compact difference-differences model:
+
+
+  Yi,t = αi + ηj,t + γ · 1 [t − Ti ≥ 0] + δ · 1 [t − Ti ≥ 0] · Ci + β · 1 [t − Ti ≥ 0] · Di
+
+                                                                    + τ · 1 [t − Ti ≥ 0] · Di · Ci + εi,t , (4)
+
+
+where Ci is an indicator equal to one if firm i falls in the top tercile of the SAFE score distribu-
+tion and zero if it falls in the bottom tercile of the distribution. All other variables are defined
+as before. The estimated treatment effect is given by β̂ for unconstrained firms and by β̂ + τ̂
+for constrained firms; the difference between the two is given by τ̂ . We report the estimation
+results in Table 4.
+       To begin with, columns (1)-(3) report the estimated treatment effects for the three real
+outcomes for which the baseline treatment effect is positive and significant, namely, sales,
+employment, and fixed assets. In each case, the treatment effect is large in magnitude and
+statistically significant for constrained firms; for example, the employment of a financially
+constrained supplier is estimated to increase by 17 percent in the years following enrollment
+in an SCF program. For unconstrained firms, on the other hand, the estimated treatment
+  14
+     We refer the reader to Online Appendix A for details on our implementation of the SAFE index and to Ferrando
+et al. (2015) for details on the index itself.
+
+
+                                                       21
+                     Table 4: Cross-sectional heterogeneity in treatment effects
+
+                                  Real effects                             Financial effects
+
+                         (1)           (2)          (3)           (4)            (5)             (6)        (7)
+                        Sales       Employ-        Fixed       Net debt/       Cash/       Total debt/   Receivable
+                                     ment          assets       Assets         Assets        Assets        days
+
+ Unconstrained          0.094        –0.025        0.084        –0.021         0.029**          0.01     –7.077***
+                       [0.063]       [0.062]      [0.109]       [0.021]        [0.014]         [0.015]    [2.249]
+ Constrained           0.275***     0.165***      0.283**       0.039*         –0.003          0.038*    –7.231***
+                       [0.080]       [0.062]      [0.119]       [0.022]        [0.007]         [0.021]    [2.263]
+ Difference            0.181*        0.190**       0.199        0.060*        –0.032**         0.028      –0.154
+                       [0.105]       [0.090]      [0.166]       [0.031]        [0.016]         [0.026]    [3.256]
+
+ Number of obs.         4,343        4,397         4,519         4,306          4,354          4,528       4,317
+
+
+This table reports subsample treatment effects from estimations of the triple-differenced model specified in (4).
+Firms in the bottom tercile of the SAFE score distribution are classified as unconstrained, and those in the top
+tercile as constrained (a high SAFE score corresponds to tight financial constraints). The estimated treatment
+effects is given by β̂ for unconstrained firms and by β̂ + τ̂ for constrained firms; the difference between the two
+is given by τ̂ . The number of observations refer to the the total number of observations across both estimations
+in each column. Standard errors clustered by firm are reported in square brackets. ***, **, and * denote statistical
+significance at the ten, five, and one percent levels, respectively.
+
+
+
+
+effects are statistically insignificant for all three variables and considerably smaller in mag-
+nitude than the corresponding estimates for constrained firms. The difference in treatment
+effects across the two groups is, however, not statistically significant in the case of fixed assets.
+    To shed light on the drivers of the differences in real effects across constrained and un-
+constrained suppliers, we turn next to an assessment of heterogeneity in the financial effects
+of SCF programs. We do this by estimating the triple-differenced model with net debt as well
+as its two main components, cash and total debt, as dependent variables. The results are re-
+ported in columns (5)-(7). The estimates show that the effect of SCF programs on net debt
+is positive for constrained suppliers: the ratio of net debt to assets increases by 3.9 percent-
+age points in the years following SCF enrollment, as a consequence of increased borrowing.
+This implies that for financially constrained suppliers, the indirect channels through which
+SCF programs may relax liquidity constraints—increasing credit supply and reducing the size
+of desired liquidity buffers—are almost as important as the direct effect coming from the re-
+duced necessity to lock up funds in receivables.
+    Unconstrained suppliers, on the other hand, significantly increase their cash holdings fol-
+
+                                                          22
+lowing SCF enrollment, which is precisely what one would expect from a supplier that oper-
+ated at its desired level of output when enrolling in an SCF program. The net-debt response
+of unconstrained suppliers is nevertheless statistically insignificant, as part of the increase in
+cash holdings is offset by an (insignificant) increase in borrowing. The differing responses
+of constrained and unconstrained suppliers help explain the puzzling finding that both cash
+holdings and borrowing increase following SCF enrollment in the full sample: namely, these
+responses suggest that the cash increase is driven by unconstrained suppliers and the bor-
+rowing increase by constrained suppliers.
+    Finally, a potential concern with the subsample results presented in Table 4 is that the av-
+erage treatment intensity could differ between constrained and unconstrained suppliers. To
+see this, note that while our treatment indicator is binary, the underlying intensity of treat-
+ment varies with the share of the SCF buyer in a supplier’s total sales—the larger is this share,
+the larger is the effect of an SCF program on a supplier’s overall receivable days. Hence, if
+the average treatment intensity differs between constrained and unconstrained suppliers, the
+heterogeneous treatment effects documented in Table 4 could be due to different treatment
+intensities, rather than the differing degrees to which firms are financially constrained (recall
+that the liquidity-constraint hypothesis predicts differing real effects conditional on a given
+treatment intensity). To assess this concern, we test whether the effect of SCF programs on
+suppliers’ receivable days differ between constrained and unconstrained firms. The results,
+reported in column (7) of Table 4, show that the estimated treatment effects are virtually iden-
+tical for the two groups of firms. It is thus unlikely that differing treatment intensities explain
+the heterogeneity in the treatment effects documented in Table 4.
+    In sum, the results presented in this section show, first, that the real effects of SCF pro-
+grams are accounted for by suppliers that are likely to be financially constrained ex-ante; and
+second, that the behavior of these suppliers following enrollment in SCF programs is what
+one would expect if they indeed are constrained. These results further corroborate the claim
+that SCF programs enable suppliers to grow by relaxing their liquidity constraints.
+
+
+
+
+4    Concluding Remarks
+
+Supply-chain finance, a financial product innovation that offers to resolve buyers’ and suppli-
+ers’ diverging interests about trade credit maturities, has grown dramatically in recent years.
+SCF programs are often described as win-win solutions that benefit both suppliers and buy-
+
+                                                23
+ers, but the net effect of SCF participation on suppliers is a priori unclear and the extant em-
+pirical evidence is scant. In this paper, we use unique invoice-level data covering the SCF pro-
+grams operated by a large Swedish bank to empirically evaluate the real and financial effects
+of SCF program participation on suppliers. We find that SCF programs have large positive real
+effects—suppliers’ sales, employment, and fixed assets grow significantly in the years follow-
+ing SCF enrollment—and that the underlying mechanism through which these effects arise is
+relaxed liquidity constraints. These findings underscore that working-capital constraints are
+a serious impediment to firms’ ability to develop and grow (cf. Banerjee and Duflo, 2014).
+      One important policy implication of our findings concerns the legal limits on payment
+periods in business-to-business transactions that many governments have imposed in recent
+years, for example the European Commission’s Late Payment Directive. Trade credit issuance
+has both costs and benefits for suppliers, as shown by Breza and Lieberman (2017), which
+implies that legal limits on trade credit need not be uniformly positive even for the suppliers
+that are intended to benefit from such legislation. Our results indicate that SCF programs
+can be a way of preserving the benefits of trade credit for facilitating trade, while reducing
+the costs of issuing trade credit for suppliers. Given this, regulators may want to consider
+exceptions for market-based solutions, such as SCF-programs, when imposing legal limits
+on payment periods.15
+
+
+
+
+References
+
+Abadie, Alberto, and Guido W. Imbens. 2006. “Large Sample Properties of Matching Estima-
+  tors for Average Treatment Effects.” Econometrica, 74(1): 235–267.
+
+
+Amberg, Niklas, Tor Jacobson, Anna Rogantini Picco, and Vincenzo Quadrini. 2023. “Dy-
+  namic Credit Constraints: Theory and Evidence from Credit Lines.” Sveriges Riksbank
+  Working Paper No. 422.
+
+
+Aretz, Kevin, Murillo Campello, and Maria-Teresa Marchica. 2020. “Access to collateral and
+  the democratization of credit: France’s reform of the Napoleonic Security Code.” Journal of
+  Finance, 75(1): 45–90.
+
+ 15
+      Kouvelis and Xu (2021) make a similar argument on the basis of a theoretical model
+
+
+                                                        24
+Baker, Andrew C., David F. Larcker, and Charles C.Y. Wang. 2022. “How much should
+  we trust staggered difference-in-differences estimates?” Journal of Financial Economics,
+  144(2): 370–395.
+
+Banerjee, Abhijit V., and Esther Duflo. 2014. “Do Firms Want to Borrow More? Testing Credit
+  Constraints Using a Directed Lending Program.” Review of Economic Studies, 81(2): 572–
+  607.
+
+Barrot, Jean-Noël. 2016. “Trade Credit and Industry Dynamics: Evidence from Trucking
+  Firms.” Journal of Finance, 71(5): 1975–2016.
+
+Benmelech, Efraim, Nittai Bergman, and Amit Seru. 2021. “Financing Labor.” Review of Fi-
+  nance, 25(5): 1365–1393.
+
+Breza, Emily, and Andres Liberman. 2017. “Financial Contracting and Organizational Form:
+  Evidence from the Regulation of Trade Credit.” Journal of Finance, 72(1): 291–324.
+
+Callaway, Brantly, and Pedro H.C. Sant’Anna. 2021. “Difference-in-Differences with multi-
+  ple time periods.” Journal of Econometrics, 225(2): 200–230.
+
+Chuk, Elizabeth, Ben Lourie, and Il Sun Yoo. 2024. “Supply Chain Finance: An Early Empiri-
+  cal Examination.” Manuscript.
+
+de Chaisemartin, Clément, and Xavier D’Haultfœuille. 2020. “Two-Way Fixed Effects Esti-
+  mators with Heterogeneous Treatment Effects.” American Economic Review, 110(9): 2964–
+  96.
+
+Dı́ez, Federico J., Jiayue Fan, and Carolina Villegas-Sánchez. 2021. “Global declining com-
+  petition?” Journal of International Economics, 132: 103492.
+
+Farre-Mensa, Joan, and Alexander Ljungqvist. 2016. “Do Measures of Financial Constraints
+  Measure Financial Constraints?” Review of Financial Studies, 29(2): 271–308.
+
+Ferrando, Annalisa, Matteo Iudice, Carlo Altomonte, Sven Blank, Marie-Hélène Felt,
+  Philipp Meinen, Katja Neugebauer, and Iulia Siedschlag. 2015. “Assessing the financial
+  and financing conditions of firms in Europe: The financial module in CompNet.” ECB
+  Working Paper No. 1836.
+
+                                             25
+Gelsomino, Luca Mattia, Riccardo Mangiaracina, Alessandro Perego, and Angela Tumino.
+  2016. “Supply chain finance: a literature review.” International Journal of Physical Distri-
+  bution & Logistics Management, 46(4): 348–66.
+
+Gopinath, Gita, Şebnem Kalemli-Özcan, Loukas Karabarbounis, and Carolina Villegas-
+  Sanchez. 2017. “Capital Allocation and Productivity in South Europe*.” Quarterly Journal
+  of Economics, 132(4): 1915–1967.
+
+Gourinchas, Pierre-Olivier, Sebnem Kalemli-Özcan, Veronika Penciakova, and Nick
+  Sander. 2024. “SME Failures Under Large Liquidity Shocks: An Application to the COVID-
+  19 Crisis.” Journal of the European Economic Association, forthcoming.
+
+Huang, Qiuping, Xiande Zhao, Min Zhang, KwanHo Yeung, Lijun Ma, and Jeff Hoi yan Ye-
+  ung. 2020. “The joint effects of lead time, information sharing, and the accounts receivable
+  period on reverse factoring.” Industrial Management & Data Systems, 120(1): 215–230.
+
+Imbens, Guido W., and Donald B. Rubin. 2015. Causal Inference for Statistics, Social, and
+  Biomedical Sciences: An Introduction. Cambridge: Cambridge University Press.
+
+Kalemli-Özcan, Sebnem, Bent E. Sørensen, Carolina Villegas-Sanchez, Vadym Volosovych,
+  and Sevcan Yesiltas. 2024. “How to Construct Nationally Representative Firm Level Data
+  from the Orbis Global Database: New Facts on SMEs and Aggregate Implications for Indus-
+  try Concentration.” American Economic Journal: Macroeconomics, forthcoming.
+
+Kouvelis, Panos, and Fasheng Xu. 2021. “A Supply Chain Theory of Factoring and Reverse
+  Factoring.” Management Science, 67(10): 6071–6088.
+
+Murfin, Justin, and Ken Njoroge. 2015. “The Implicit Costs of Trade Credit Borrowing by
+  Large Firms.” Review of Financial Studies, 28(1): 112–145.
+
+Shou, Yongyi, Jinan Shao, and Weijiao Wang. 2021. “How does reverse factoring affect oper-
+  ating performance? An event study of Chinese manufacturing firms.” International Journal
+  of Operations & Production Management, 41(4): 289–312.
+
+Whited, Toni M., and Guojun Wu. 2006. “Financial Constraints Risk.” Review of Financial
+  Studies, 19(2): 531–559.
+
+Wuttke, David A., Eve D. Rosenzweig, and Hans Sebastian Heese. 2019. “An empirical analy-
+  sis of supply chain finance adoption.” Journal of Operations Management, 65(3): 242–261.
+
+                                             26
+Online Appendix for “Supply-Chain Finance: An Empirical
+           Evaluation of Supplier Outcomes”
+
+          Niklas Amberg, Tor Jacobson, and Yingjie Qi
+A     Details on the computation of the SAFE score
+
+The measure of financial constraints on which the cross-sectional heterogeneity analysis in
+section 3.3.3 is based is the SAFE index, developed by Ferrando et al. (2015) on the basis of
+data from ECB’s SAFE survey on firms’ access to finance. Ferrando et al. (2015) create the
+SAFE index on the basis of the coefficients from a probit regression in which the dependent
+variable is a financial constraint indicator and the explanatory variables are financial lever-
+age (total liabilities minus accounts payable divided by total assets), the inverse of the inter-
+est coverage ratio (interest payments over EBITDA), the profit margin (EBIT over sales), asset
+tangibility (fixed assets over total assets), cash holdings (cash and cash equivalents over total
+assets), and log total assets, along with time, industry, and country fixed effects. The financial
+constraint indicator is based on firms’ responses in the SAFE survey. More specifically, it is
+equal to one for firms that report (i) having had a loan application rejected, either fully or par-
+tially, (ii) having rejected a loan offer because the cost was too high, or (iii) having abstained
+from applying for a loan for fear of rejection.
+     Ferrando et al. (2015) work with two different measures of financial leverage and construct
+one constraint index for each measure. We measure financial leverage as total liabilities mi-
+nus accounts payable divided by total assets, and therefore use the following version of the
+SAFE index (see Table 4 in Ferrando et al., 2015):
+
+
+    SAF Ei,t = 0.51 · F inancialLeveragei,t + 0.31 · InverseICRi,t − 0.22 · P rof itM argini,t
+
+                 − 0.09 · AssetT angibilityi,t − 1.26 · CashHoldingsi,t − 0.02 · ln(Assetsi,t ). (A1)
+
+
+     When computing the SAFE index for the firms in our sample, we first average all variables
+over the pre-treatment period (as in Aretz, Campello and Marchica, 2020) and then winsorize
+the averaged variables at the first and 99th percentiles. Note also that since the inverse of the
+interest coverage ratio is a meaningful measure only for firms making positive profits, Fer-
+rando et al. (2015) only include firms with positive values of this ratio when estimating the
+probit regression that generates the coefficients for the index. Given this, we only compute
+the SAFE index for suppliers whose inverse interest coverage ratios were positive on aver-
+age over the pre-treatment period; suppliers with negative ratios are thus excluded from the
+cross-sectional heterogeneity analysis.
+
+
+
+
+                                                  i
+B     Additional tables and figures
+
+
+                      Figure B1: Effects of SCF program participation on financial variables
+
+                                           A. Net debt/Assets                                                                        B. Cash/Assets
+                      8                                                                                     8
+
+                      6                                                                                     6
+
+                      4                                                                                     4
+
+
+            Percent                                                                               Percent
+                      2                                                                                     2
+
+                      0                                                                                     0
+
+                      -2                                                                                    -2
+
+                      -4                                                                                    -4
+
+                      -6                                                                                    -6
+                           -5   -4   -3    -2 -1       0     1   2    3             4    5                       -5   -4   -3    -2 -1       0     1   2    3   4   5
+                                          Years relative to SCF start                                                           Years relative to SCF start
+
+                                          C. Total debt/Assets                                                             D. Short-term debt/Assets
+                      8                                                                                     8
+
+                      6                                                                                     6
+
+                      4                                                                                     4
+
+
+            Percent                                                                               Percent
+                      2                                                                                     2
+
+                      0                                                                                     0
+
+                      -2                                                                                    -2
+
+                      -4                                                                                    -4
+
+                      -6                                                                                    -6
+                           -5   -4   -3    -2 -1       0     1   2    3             4    5                       -5   -4   -3    -2 -1       0     1   2    3   4   5
+                                          Years relative to SCF start                                                           Years relative to SCF start
+
+                                                                               E. Long-term debt/Assets
+                                                               8
+
+                                                               6
+
+                                                               4
+
+
+                                                     Percent
+                                                               2
+
+                                                               0
+
+                                                               -2
+
+                                                               -4
+
+                                                               -6
+                                                                    -5   -4   -3    -2 -1       0     1   2    3                 4    5
+                                                                                   Years relative to SCF start
+
+
+This figure plots the β k coefficients from the estimation of equation (2) with net debt, cash holdings, total debt,
+short-term debt, and long-term debt—all scaled by total assets—as dependent variables. The vertical lines corre-
+spond to 95-percent confidence intervals.
+
+
+
+
+                                                                                             ii
+Recent Working Papers:
+For a complete list of Working Papers published by Sveriges Riksbank, see www.riksbank.se
+
+
+
+The Macroeconomic Effects of Trade Tariffs: Revisiting the Lerner Symmetry Result               2019:363
+by Jesper Lindé and Andrea Pescatori
+Biased Forecasts to Affect Voting Decisions? The Brexit Case                                    2019:364
+by Davide Cipullo and André Reslow
+The Interaction Between Fiscal and Monetary Policies: Evidence from Sweden                      2019:365
+by Sebastian Ankargren and Hovick Shahnazarian
+Designing a Simple Loss Function for Central Banks: Does a Dual Mandate Make Sense?             2019:366
+by Davide Debortoli, Jinill Kim and Jesper Lindé
+Gains from Wage Flexibility and the Zero Lower Bound                                            2019:367
+by Roberto M. Billi and Jordi Galí
+Fixed Wage Contracts and Monetary Non-Neutrality                                                2019:368
+by Maria Björklund, Mikael Carlsson and Oskar Nordström Skans
+The Consequences of Uncertainty: Climate Sensitivity and Economic Sensitivity to the Climate    2019:369
+by John Hassler, Per Krusell and Conny Olovsson
+Does Inflation Targeting Reduce the Dispersion of Price Setters’ Inflation Expectations?        2019:370
+by Charlotte Paulie
+Subsampling Sequential Monte Carlo for Static Bayesian Models                                   2019:371
+by David Gunawan, Khue-Dung Dang, Matias Quiroz, Robert Kohn and Minh-Ngoc Tran
+Hamiltonian Monte Carlo with Energy Conserving Subsampling                                      2019:372
+by Khue-Dung Dang, Matias Quiroz, Robert Kohn, Minh-Ngoc Tran and Mattias Villani
+Institutional Investors and Corporate Investment                                                2019:373
+by Cristina Cella
+The Impact of Local Taxes and Public Services on Property Values                                2019:374
+by Anna Grodecka and Isaiah Hull
+Directed technical change as a response to natural-resource scarcity                            2019:375
+by John Hassler, Per Krusell and Conny Olovsson
+A Tale of Two Countries: Cash Demand in Canada and Sweden                                       2019:376
+by Walter Engert, Ben Fung and Björn Segendorf
+Tax and spending shocks in the open economy: are the deficits twins?                            2019:377
+by Mathias Klein and Ludger Linnemann
+Mind the gap! Stylized dynamic facts and structural models                                      2019:378
+by Fabio Canova and Filippo Ferroni
+Financial Buffers, Unemployment Duration and Replacement Labor Income                           2019:379
+by Mats Levander
+Inefficient Use of Competitors' Forecasts?                                                      2019:380
+by André Reslow
+How Much Information Do Monetary Policy Committees Disclose? Evidence from the FOMC's Minutes   2019:381
+and Transcripts
+by Mikael Apel, Marianna Blix Grimaldi and Isaiah Hull
+Risk endogeneity at the lender/investor-of-last-resort                                          2019:382
+by Diego Caballero, André Lucas, Bernd Schwaab and Xin Zhang
+Heterogeneity in Households’ Expectations of Housing Prices – Evidence from Micro Data          2019:383
+by Erik Hjalmarsson and Pär Österholm
+Big Broad Banks: How Does Cross-Selling A Affect Lending?                                       2020:384
+by Yingjie Qi
+Unemployment Fluctuations and Nominal GDP Targeting                                             2020:385
+by Roberto Billi
+FAQ: How do I extract the output gap?                                                           2020:386
+by Fabio Canova
+Drivers of consumer prices and exchange rates in small open economies                               2020:387
+by Vesna Corbo and Paola Di Casola
+TFP news, stock market booms and the business cycle: Revisiting the evidence with VEC models        2020:388
+by Paola Di Casola and Spyridon Sichlimiris
+The costs of macroprudential deleveraging in a liquidity trap                                       2020:389
+by Jiaqian Chen, Daria Finocchiaro, Jesper Lindé and Karl Walentin
+The Role of Money in Monetary Policy at the Lower Bound                                             2020:390
+by Roberto M. Billi, Ulf Söderström and Carl E. Walsh
+MAJA: A two-region DSGE model for Sweden and its main trading partners                              2020:391
+by Vesna Corbo and Ingvar Strid
+The interaction between macroprudential and monetary policies: The cases of Norway and Sweden       2020:392
+by Jin Cao, Valeriya Dinger, Anna Grodecka-Messi, Ragnar Juelsrud and Xin Zhang
+Withering Cash: Is Sweden ahead of the curve or just special?                                       2020:393
+by Hanna Armelius, Carl Andreas Claussen and André Reslow
+Labor shortages and wage growth                                                                     2020:394
+by Erik Frohm
+Macro Uncertainty and Unemployment Risk                                                             2020:395
+by Joonseok Oh and Anna Rogantini Picco
+Monetary Policy Surprises, Central Bank Information Shocks, and Economic Activity in a Small Open   2020:396
+Economy
+by Stefan Laséen
+Econometric issues with Laubach and Williams’ estimates of the natural rate of interest             2020:397
+by Daniel Buncic
+Quantum Technology for Economists                                                                   2020:398
+by Isaiah Hull, Or Sattath, Eleni Diamanti and Göran Wendin
+Modeling extreme events: time-varying extreme tail shape                                            2020:399
+by Bernd Schwaab, Xin Zhang and André Lucas
+The Effects of Government Spending in the Eurozone                                                  2020:400
+by Ricardo Duque Gabriel, Mathias Klein and Ana Sofia Pessoa
+Narrative Fragmentation and the Business Cycle                                                      2021:401
+by Christoph Bertsch, Isaiah Hull and Xin Zhang
+The Liquidity of the Government Bond Market – What Impact Does Quantitative Easing Have? Evidence   2021:402
+from Sweden
+by Marianna Blix Grimaldi, Alberto Crosta and Dong Zhang
+Five Facts about the Distributional Income Effects of Monetary Policy                               2021:403
+by Niklas Amberg, Thomas Jansson, Mathias Klein and Anna Rogantini Picco
+When domestic and foreign QE overlap: evidence from Sweden                                          2021:404
+by Paola Di Casola and Pär Stockhammar
+Dynamic Macroeconomic Implications of Immigration                                                   2021:405
+by Conny Olovsson, Karl Walentin, and Andreas Westermark
+Revisiting the Properties of Money                                                                  2021:406
+by Isaiah Hull and Or Sattath
+The cost of disinflation in a small open economy vis-à-vis a closed economy                         2021:407
+by Oleksandr Faryna, Magnus Jonsson and Nadiia Shapovalenko
+On the Performance of Cryptocurrency Funds                                                          2021:408
+by Daniele Bianchi and Mykola Babiak
+The low-carbon transition, climate commitments and firm credit risk                                 2022:409
+by Sante Carbone, Margherita Giuzio, Sujit Kapadia, Johannes Sebastian Krämer, Ken Nyholm and
+Katia Vozian
+Seemingly Irresponsible but Welfare Improving Fiscal Policy at the Lower Bound                      2022:410
+by Roberto M. Billi and Carl E. Walsh
+Pension Reform and Wealth Inequality: Evidence from Denmark                                         2022:411
+by Torben M. Andersen, Joydeep Bhattacharya, Anna Grodecka-Messi and Katja Mann
+Inflation Targeting or Fiscal Activism?                                                             2022:412
+by Roberto M. Billi
+Trading volume and liquidity provision in cryptocurrency markets                                    2022:413
+by Daniele Bianchi, Mykola Babiak and Alexander Dickerson
+DISPERSION OVER THE BUSINESS CYCLE: PASSTHROUGH, PRODUCTIVITY, AND DEMAND                           2022:414
+by Mikael Carlsson, Alex Clymo and Knut-Eric Joslin
+Electoral Cycles in Macroeconomic Forecasts                                                         2022:415
+by Davide Cipullo and André Reslow
+The Curious Incidence of Monetary Policy Across the Income Distribution                             2022:416
+by Tobias Broer, John Kramer and Kurt Mitman
+Central Bank Mandates and Monetary Policy Stances: through the Lens of Federal Reserve Speeches     2022:417
+by Christoph Bertsch, Isaiah Hull, Robin L. Lumsdaine, and Xin Zhang
+The Political Costs of Austerity                                                                    2022:418
+by Ricardo Duque Gabriel, Mathias Klein and Ana Sofia Pessoa
+Central bank asset purchases: Insights from quantitative easing auctions of government bonds        2023:419
+by Stefan Laséen
+Greenflation?                                                                                       2023:420
+by Conny Olovsson and David Vestin
+Effects of foreign and domestic central bank government bond purchases in a small open economy      2023:421
+DSGE model: Evidence from Sweden before and during the coronavirus pandemic
+by Yildiz Akkaya, Carl-Johan Belfrage, Paola Di Casola and Ingvar Strid
+Dynamic Credit Constraints: Theory and Evidence from Credit Lines*                                  2023:422
+by Niklas Amberg, Tor Jacobson, Vincenzo Quadrini and Anna Rogantini Picco
+Stablecoins: Adoption and Fragility                                                                 2023:423
+by Christoph Bertsch
+CBDC: Lesson from a Historical Experience                                                           2023:424
+by Anna Grodecka-Messi and Xin Zhang
+Do Credit Lines Provide Reliable Liquidity Insurance? Evidence from Commercial-Paper Backup Lines   2023:425
+by Niklas Amberg
+Price Pass-Through Along the Supply Chain: Evidence from PPI and CPI Microdata                      2023:426
+by Edvin Ahlander, Mikael Carlsson and Mathias Klein
+Cash for Transactions or Store-of-Value? A comparative study on Sweden and peer countries           2023:427
+by Carl Andreas Claussen, Björn Segendorf and Franz Seitz
+Fed QE and bank lending behaviour: a heterogeneity analysis of asset purchases                      2023:428
+by Marianna Blix Grimaldi and Supriya Kapoor
+Monetary policy in Sweden after the end of Bretton Woods                                            2023:429
+by Emma Bylund, Jens Iversen and Anders Vredin
+Banking Without Branches                                                                            2024:430
+by Niklas Amberg and Bo Becker
+Climate impact assessment of retail payment services                                                2024:431
+by Niklas Arvidsson, Fumi Harahap, Frauke Urban and Anissa Nurdiawati
+Four Facts about International Central Bank Communication                                           2024:432
+by Christoph Bertsch, Isaiah Hull, Robin L. Lumsdaine, and Xin Zhang
+Optimal Monetary Policy with r* < 0                                                                 2024:433
+by Roberto Billi, Jordi Galí, and Anton Nakov
+Quantitative Easing, Bond Risk Premia and the Exchange Rate in a Small Open Economy                 2024:434
+by Jens H. E. Christensen and Xin Zhang
+Sveriges Riksbank
+Visiting address: Brunkebergs torg 11
+Mail address: se-103 37 Stockholm
+
+Website: www.riksbank.se
+Telephone: +46 8 787 00 00, Fax: +46 8 21 05 31
+E-mail: registratorn@riksbank.se
+
