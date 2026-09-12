@@ -221,3 +221,16 @@ exposes only `tfVaultPrivate` and `tfVaultShareNonTransferable`, with no way to 
 privacy-preserving lender position is not possible through vaults. (A `prepareConfidentialConvert`
 attempt also failed on an `@xrplf/mpt-crypto` API-usage error, separate from this; the missing
 issuance flag is the decisive blocker.) Repro: `confidential-shares.mjs`.
+
+
+## 16. XLS-68 Sponsor over lending: fees yes, inline reserve no (sdk + protocol)
+
+- **Sponsored fee works.** A lender's `VaultDeposit` with `Sponsor`=fund and `SponsorFlags`=1
+  (`spfSponsorFee`) returns `tesSUCCESS`; the lender balance fell by exactly the deposit amount,
+  the fund paid the fee. Real zero-fee onboarding — a genuine "Loaded" integration.
+- **Inline reserve sponsorship is rejected.** `spfSponsorReserve` (2, or 3) → `temINVALID_FLAG`
+  at the protocol level (codec-signed to bypass the client) on both `VaultDeposit` and
+  `VaultCreate`. So the share-MPToken reserve cannot be sponsored inline; it needs the pre-funded
+  sponsorship flow (`addPreFundedSponsor`/`SponsorshipSet`), undocumented. Also `xrpl.js`
+  `validate()` blocks it with a wrong reason ("does not create ledger objects" — the first
+  `VaultDeposit` creates the depositor share MPToken). Repro: `sponsor-deposit.mjs`, `sponsor-map.mjs`.
