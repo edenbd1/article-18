@@ -152,3 +152,13 @@ stablecoin (RLUSD, EURCV, most regulated stablecoins) is **not committed capital
 zero it out unilaterally. Combined with §2/§ FEEDBACK issue-on-first-loss (the two rates multiply,
 so effective coverage is already ~5× below the displayed ratio), lender protection is doubly
 fragile. Repro: `cover-clawback.mjs`.
+
+
+## 11. The vault owner cannot freeze lender shares (protocol)
+
+The share MPT issuance flags are `CanEscrow+CanTrade+CanTransfer` (+`RequireAuth` when the vault is
+domain-gated), with **no `CanLock` and no `CanClawback`**. The vault owner calling
+`MPTokenIssuanceSet` with `tfMPTLock` (whole issuance or a single holder) is refused
+`tecNO_PERMISSION`, and the lender can still `VaultWithdraw`. So the only seizure power over a vault
+position is the underlying asset issuer's `VaultClawback` (§8) — the fund operator can neither claw
+nor freeze. Repro: `freeze-shares.mjs`.
