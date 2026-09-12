@@ -141,3 +141,14 @@ The share MPT is flagged transferable (`tfMPTCanTransfer`), yet transfers to a n
 refused. So a lender cannot offload vault units onto a non-credentialed party — the KYC/ELTIF
 guarantee holds on the secondary market, not just at subscription. Undocumented; worth stating as
 a feature. Repro: `share-transfer.mjs`, `share-transfer-control.mjs`.
+
+
+## 10. First-loss cover can be clawed back by the cover asset's issuer (protocol)
+
+On a closed-ended USD vault with 20 USD of first-loss cover, the USD **issuer** called
+`LoanBrokerCoverClawback` and removed it partially (20 → 10) then fully (→ 0), both `tesSUCCESS`.
+The vault owner cannot (`tecNO_PERMISSION`). So first-loss cover denominated in a clawback-enabled
+stablecoin (RLUSD, EURCV, most regulated stablecoins) is **not committed capital** — the issuer can
+zero it out unilaterally. Combined with §2/§ FEEDBACK issue-on-first-loss (the two rates multiply,
+so effective coverage is already ~5× below the displayed ratio), lender protection is doubly
+fragile. Repro: `cover-clawback.mjs`.
