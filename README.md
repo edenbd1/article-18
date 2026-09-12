@@ -36,11 +36,15 @@ Nobody has tokenised a genuinely closed-ended fund.
 
 | path | what |
 |---|---|
-| `src/lifecycle.mjs` | the full on-chain lifecycle, instrumented; every transaction is recorded with its result code |
-| `src/lib.mjs` | connection, funding, and the transaction recorder that writes `out/tx-log.json` |
-| `repro/` | minimal reproductions for the issues in `FEEDBACK.md` |
-| `FEEDBACK.md` | the manual developer-feedback report |
-| `out/tx-log.json` | every transaction of the last run, with result code and explorer link |
+| `index.html` | self-contained front-end / demo, rendered from the live deployment (open in a browser) |
+| `src/deploy-demo.mjs` | the canonical deployment: one coherent flow integrating 7 primitives, writes `out/demo-data.json` |
+| `src/lifecycle.mjs` | the closed-ended lifecycle on its own, instrumented, writes `out/tx-log.json` |
+| `src/eligibility.mjs` | the Credentials + Permissioned-Domain eligibility gate |
+| `src/lib.mjs` | connection, funding, and the transaction recorder |
+| `fuzz/FUZZING.md` + `fuzz/*.mjs` | 16 sections of fuzzing / differential testing, each with a runnable script |
+| `FEEDBACK.md` | the manual developer-feedback report (root of repo) |
+| `DEMO-SCRIPT.md` | the 4-minute demo script |
+| `out/demo-data.json`, `out/tx-log*.json` | every transaction of each run, with result code and explorer link |
 
 ## Environment
 
@@ -75,6 +79,30 @@ SUB_SECS=150 INV_SECS=330 node src/lifecycle.mjs
 ```
 
 `INV_SECS` must be at least **180** (`kMinInvestmentPeriod`); 179 returns `temMALFORMED`.
+
+## Reproduce
+
+```bash
+npm install                 # xrpl 5.2.0
+npm run deploy              # the full canonical flow on public Devnet, ~6 min (two phase waits)
+```
+
+`npm run deploy` funds fresh accounts from the Devnet faucet, runs DID + Credentials +
+Permissioned Domains + closed-ended vault + sponsored deposit + double-signed loan + repayment +
+redemption, and writes `out/demo-data.json`. Then open `index.html` in a browser to see it
+rendered (the data is embedded, no server needed).
+
+Every fuzzing finding is a standalone script, for example:
+
+```bash
+node fuzz/default-cycle.mjs      # first-loss multiplication, measured on a live default
+node fuzz/clawback-iou.mjs       # issuer clawback of a lender's vault position
+node fuzz/rate-server-truth.mjs  # real server rate bounds vs the SDK
+```
+
+Networks: Track 2 uses public Devnet (`wss://s.devnet.rippletest.net:51233`, net 2). Some fuzzing
+scripts also target the custom hackathon Devnet (`wss://lending-hackathon.dev.ripplex.io:51233`,
+net 4001) and take pre-funded seeds via `HACK_SEEDS`.
 
 ## XLS-65 / XLS-66 transactions used
 

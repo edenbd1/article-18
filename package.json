@@ -1,15 +1,15 @@
 {
-  "name": "xrpl-lending",
+  "name": "article-18",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "description": "Closed-ended XRPL vault (XLS-65) + Lending Protocol V1.1 (XLS-66), ELTIF-shaped, compliance-gated. XRPL Lending Hackathon, Track 2 / Loaded.",
   "type": "module",
+  "scripts": {
+    "deploy": "node src/deploy-demo.mjs",
+    "lifecycle": "node src/lifecycle.mjs",
+    "eligibility": "node src/eligibility.mjs"
+  },
+  "author": "edenbd1",
+  "license": "MIT",
   "dependencies": {
     "xrpl": "^5.2.0"
   },
