@@ -230,7 +230,10 @@ issuance flag is the decisive blocker.) Repro: `confidential-shares.mjs`.
   the fund paid the fee. Real zero-fee onboarding — a genuine "Loaded" integration.
 - **Inline reserve sponsorship is rejected.** `spfSponsorReserve` (2, or 3) → `temINVALID_FLAG`
   at the protocol level (codec-signed to bypass the client) on both `VaultDeposit` and
-  `VaultCreate`. So the share-MPToken reserve cannot be sponsored inline; it needs the pre-funded
-  sponsorship flow (`addPreFundedSponsor`/`SponsorshipSet`), undocumented. Also `xrpl.js`
+  `VaultCreate`. So the share-MPToken reserve cannot be sponsored inline; reserve sponsorship is simply
+  **not supported for vault txs at the protocol level**: even with a `SponsorshipSet` established
+  (fund pre-funds the lender, `tesSUCCESS`), a codec-signed `VaultDeposit` with `SponsorFlags=3`
+  still returns `temINVALID_FLAG`. Only fees are sponsorable. So a lender must hold the XRP owner
+  reserve for their share MPToken themselves; the fund can cover the fee but not the reserve. Also `xrpl.js`
   `validate()` blocks it with a wrong reason ("does not create ledger objects" — the first
   `VaultDeposit` creates the depositor share MPToken). Repro: `sponsor-deposit.mjs`, `sponsor-map.mjs`.
